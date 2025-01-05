@@ -1,0 +1,169 @@
+{% extends 'probase.html.twig' %}
+
+{% block title %}Дочь - Пчело{% endblock %}
+
+{% block menupro %}
+    {{ include('app/proekts/_tabs.html.twig') }}
+    {{ include('app/proekts/page_glavas/pchelomatka/childs/_tabs.html.twig') }}
+{% endblock %}
+
+    {% block sidebarr %}
+        {% include('app/proekts/pasekas/childpchelos/side/_sidefiltr.html.twig') %}
+    {% endblock %}
+
+{% block kroxii %}
+    <a href="{{ path('app.proekts.page_glavas.pchelomatka.childs.spisok-instr') }}">Инфа: после объявления  </a>
+    <span class="aktiv ">Список Дочь - Пчело.</span>
+
+{% endblock %}
+
+{% block bodyy %}
+
+    <div class=" proekts pro-pchelomat">
+
+        <div class="inklud inklud--pchelomat ">
+
+            <div class="pchelo-title  pchelo-teni ">
+
+                {% if not pchelomatka %}
+                    Список
+                    <span class="strongo--elit ">   Пчело-Маток</span>
+                    и их
+                    <span class="strongo--elit ">   Дочь-Пчело</span>
+                {% else %}
+                    Список
+                    <span class="strongo--elit "> Дочь-Пчело </span>
+                    <span class="strongo--elit "> от </span> {{ pchelomatka.name }}
+
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="tabl__header ">
+            <div style="overflow: auto">
+                <table class="child-tabl  child-tabl-hover ">
+                    <thead>
+                    <tr>
+                        {% if not pchelomatka %}
+                            <td class="child-tabl-col-pchelo "> Пчело-Матка</td>
+                        {% else %}
+                            <td></td>
+                        {% endif %}
+                        <td>Выход</td>
+                        <td></td>
+                        <td class="child-tabl-col">Дочь-Пчело</td>
+                        <td class="child-tabl-col-pchelo">Автор</td>
+
+                        <td>Приорит</td>
+                        <td class="child-tabl-col">Тестер</td>
+                        <td>Дата</td>
+                        <td class="child-tabl-col-pchelo">Статус</td>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% set sezon = '2000' %}
+                    {% for childpchelo in pagination %}
+
+                        <tr>
+                        {% if not pchelomatka %}
+                            <td class="child-tabl-col-pchelo ">
+                                <a href="{{ path('app.proekts.pasekas.pchelomatkas.pchelomatka.childpchelos',
+                                    {'pchelomatka_id': childpchelo.pchelomatka_id}) }}">
+                                    {{ childpchelo.korotko }}
+
+                                </a>
+                            </td>
+                        {% else %}
+                            {#                                        ===================#}
+                            {% set pchelosezond = childpchelo.pchelosezon_plem +1 %}
+
+                            {% if  (childpchelo.pchelosezon_plem == sezon) %}
+
+                                <td></td>
+                                {#                                </tr>#}
+                            {% else %}
+                                {#                                        <tr>#}
+                                <td class=" pchelo-title  pchelo-teni child-tabl-col-pchelo">
+                                    {#                                    <div class="pchelo-title  pchelo-teni ">#}
+                                    {{ childpchelo.pchelosezon_plem }}-{{ pchelosezond }}
+                                    {#                                    </div>#}
+                                </td>
+                                <td colspan="8"></td>
+
+                                </tr>
+
+                                <tr>
+                                <td></td>
+                            {% endif %}
+                            {% set sezon = childpchelo.pchelosezon_plem %}
+
+                            {#                                        ==================#}
+                        {% endif %}
+                        <td>{{ childpchelo.date|date('d.m.Y') }}
+
+                        </td>
+                        <td>
+                            {% if childpchelo.type != 'none' %}
+                                {{ paseka_matkas_childmatka_type(childpchelo.type) }}
+                            {% endif %}
+                        </td>
+
+                        {#                        {% set  urowni = childpchelo.urowni %}#}
+                        {#                        {% if childpchelo.parent %}#}
+                        {#                    <td class="tabl-bord- tabl-bord-child ">#}
+                        {#                        <div>#}
+                        {#                            {% for i in 1..urowni %}#}
+                        {#                                <span class="fa fa-angle-double-right"></span>#}
+                        {#                                #}{#                                    <img  style="margin-bottom: 2px" src="{{ asset('assets/proekt/images/strelka-m.png') }}" alt="редактировать">#}
+                        {#                            {% endfor %}#}
+                        {#                        </div>#}
+                        {#                        {% else %}#}
+                        {#                        <td class="tabl-bord- tabl-bord-child ">#}
+                        {#                            <a href="{{ path('app.proekts.pasekas.childpchelos.show', {'id': childpchelo.id}) }}">#}
+                        {#                                {{ childpchelo.name }}#}
+                        {#                            </a>#}
+                        {#                            {% endif %}#}
+
+                        {#                        </td>#}
+                        {% set  urowni = childpchelo.urowni -1%}
+                        <td class="child-tabl-col">
+                            {% if childpchelo.parent %}
+                                {% for i in 1..urowni %}
+                                    <span class="fa fa-angle-double-right"></span>
+                                {% endfor %}
+                            {% endif %}
+                            <a href="{{ path('app.proekts.pasekas.childpchelos.show', {'id': childpchelo.id}) }}">
+                                {{ childpchelo.name }}
+                            </a>
+                        </td>
+                        <td class="child-tabl-col-pchelo">{{ childpchelo.author_name }} </td>
+
+                        <td class="tabl-bord-pchelo td_cent">
+                            {{ paseka_matkas_childmatka_priority(childpchelo.priority) }}
+                        </td>
+                        {#                        class="td_cent"#}
+                        <td class="child-tabl-col">
+                            {% for executor in childpchelo.executors %}
+                                {#                                <span class="badge badge-default"#}
+                                {#                                      style="background: #eee">{{ executor.name }}</span>#}
+                                {{ executor.name }}
+                            {% endfor %}
+                        </td>
+                        <td>{{ childpchelo.plan_date ? childpchelo.plan_date|date('d.m.Y') : '' }}</td>
+                        <td>
+                            {{ paseka_matkas_childmatka_status(childpchelo.status) }}
+                            {#                                {{ childpchelo.status }}#}
+                        </td>
+
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+
+{% endblock %}

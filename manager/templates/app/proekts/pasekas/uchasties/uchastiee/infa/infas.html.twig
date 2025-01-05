@@ -1,0 +1,86 @@
+{% extends 'probase.html.twig' %}
+
+{% block title %}Информация {% endblock %}
+
+{% block sidebarr %}
+    {{ include('app/proekts/personaa/side/_side-es.html.twig') }}
+{% endblock %}
+
+{% block menupro %}
+    {{ include('app/proekts/_tabs.html.twig') }}
+    {{ include('app/proekts/page_glavas/uchastieGl/_tabs.html.twig') }}
+{% endblock %}
+
+{% block kroxii %}
+    <a href="{{ path('app.proekts.pasekas.uchasties.uchastiee.infa.inform') }}">Инфа:  Стать участником (картинки)</a>
+    <span class="aktiv">Инфа: Все Участники</span>
+    <a href="{{ path('app.proekts.pasekas.uchasties.uchastiee') }}">Стать участником </a>   
+{% endblock %}
+
+
+{% block bodyy %}
+
+    <div class="proekts pro-mesto">
+
+        <div class="wstavka pchelo-teni">
+            Все Ники участников проекта
+        </div>
+
+
+    {% if fetcher %}
+        <h2 class="pagee__title ">Все выбраные Ники </h2>
+
+        <div class="proekts-plr">
+            <div class="ramka">
+                {% for nik in fetcher %}
+                    <div class="ramka__nike">
+                        {{ nik.nike }}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    {% endif %}
+
+    <div class="mestoo__linia-top"></div>
+    {% if uchastie %}
+        <div class="proekts-plr">
+            <div class="ramka">
+                <h2 class="personaa__title "><strong class="strongo--name-nike">{{ last }}, </strong> 
+                    Ваш  Ник :  <span class="ramka__nike">{{ uchastie.nike }}</span>
+                </h2>
+                
+            </div>
+        </div>
+        <div class="proekts-plr">
+            <div class="wstavka wstavka--uch back-color-uch">
+                <h2 class="personaa__title    ">Стать участником !!! </h2>
+                <a class="btnn ma-to-1  btnn-uchas"
+                   href="{{ path('app.proekts.pasekas.uchasties.uchastiee') }}">
+                    продолжить
+                </a>
+            </div>
+        </div>
+    {% else %}
+
+        <h2 class="pagee__title ">
+            <span class="profilee__name blink "> {{ last }} </span>
+           
+            , для участия в проекте, нужно выбрать  
+             <a href="/app/proekts/personaa/nomer/diapazon">
+                <span class="strongo">  Ник и группу.</span>
+            </a>
+            
+        </h2>
+        
+        <div class="pagee__title ma-bo-2">
+            <p class="ma-to-2"> Забыли с чего начать? </p>
+           <p class="ma-to-2 "> Начните с просмотра пошаговой инструкции: 
+            <a href="/app/proekts/personaa/infa/inform">
+                <span class="strongo"> Инфа:  Стать участником (картинки) </span>
+            </a>
+           </p> 
+        </div>
+    {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'probase.html.twig' %}
+
+{% block title %}ПчелоМатка{% endblock %}
+
+
+{% block menupro %}
+    {{ include('app/proekts/_tabs.html.twig') }}
+    {{ include('app/proekts/page_glavas/pchelomatka/_tabs.html.twig') }}
+{% endblock %}
+
+{% block kroxii %}
+    <span class="aktiv ">Выбор инфы.</span>
+    <a href="{{ path('app.proekts.page_glavas.pchelomatka.show') }}">Инфа: перед регистрацией.</a>
+    <a href="{{ path('app.proekts.page_glavas.pchelomatka.reg-infa') }}">Инфа:  регистрация матки.</a>
+    <a href="{{ path('app.proekts.page_glavas.pchelomatka.spisok-instr') }}">Инфа: после регистрации.</a>
+
+{% endblock %}
+
+{% block bodyy %}
+    <div class="ma-bo-2 pa-to-2 ma-ri-8">
+        <h2 class="zagol-teni-44 ">
+            Что и как делать:
+            <p> основные <span class="col-kras">моменты </span> в картинках</p>
+        </h2>
+    </div>
+
+    <div class="ma-bo-2">
+        <div class="ma-bo-1">
+            <span class="zagol-teni-44 zagol-teni-44--px32">
+                <a href="{{ path('app.proekts.page_glavas.pchelomatka.show') }}">
+                 1)   <span class="col-kras">Перед </span>   регистрацией матки.
+                 </a>
+            </span>
+        </div>
+        <div class="ma-bo-1">
+            <span class="zagol-teni-44 zagol-teni-44--px32">
+                <a href="{{ path('app.proekts.page_glavas.pchelomatka.reg-infa') }}">
+                  2)  <span class="col-kras">Регистрация</span>   матки.
+                </a>
+            </span>
+        </div>
+        <div>
+            <span class="zagol-teni-44 zagol-teni-44--px32">
+                <a href="{{ path('app.proekts.page_glavas.pchelomatka.spisok-instr') }}">
+                  3)  <span class="col-kras">После </span>  регистрации матки.
+                </a>
+            </span>
+        </div>
+
+    </div>
+
+{% endblock %}

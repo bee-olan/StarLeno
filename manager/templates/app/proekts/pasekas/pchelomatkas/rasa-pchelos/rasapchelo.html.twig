@@ -1,0 +1,71 @@
+{% extends 'probase.html.twig' %}
+
+{% block title %}Раса{% endblock %}
+
+{#{% block sidebarr %}#}
+{#    {% include('app/proekts/drevorods/rasbrs/sideBr/_side_plemras.html.twig') %}#}
+{#{% endblock %}#}
+
+{% block menupro %}
+    {{ include('app/proekts/_tabs.html.twig') }}
+    {{ include('app/proekts/page_glavas/pchelomatka/_tabs.html.twig') }}
+{% endblock %}
+
+{% block kroxii %}
+    <a href="{{ path('app.proekts.page_glavas.pchelomatka.show') }}">Инфа: перед регистрацией.</a>
+    <a href="{{ path('app.proekts.pasekas.pchelomatkas.rasa-pchelos.infa') }}">Инфа: Новая раса.</a>
+    <span class="aktiv ">Расы из БД - обзор.</span>
+
+{% endblock %}
+
+
+{% block bodyy %}
+
+    <div class=" proekts pro-pchelomat">
+
+        <div class="inklud inklud--pchelomat ">
+
+            <div class="pchelo-title  pchelo-teni ">
+                Смотрим наличие расы для регистрации
+            </div>
+        </div>
+
+        <div class="proekts-plr ma-le-2 ma-bo-2">
+
+
+
+            {% for rasa in rasas %}
+                {% if rasa.title == "..." %}
+                    <ul class="pchelo__data pchelo__data--col ma-bo-2">
+                        <li  class="pchelo__name pchelo__name--wid34">
+                            <div class=" pchelo-titul ">
+                                <span class="col-kras"> Внимание! </span> Если нет нужного названия Расы:
+                            </div>
+
+                        </li>
+                        <li>
+                            <a href="{{ path('app.proekts.pasekas.pchelomatkas.rasa-pchelos.comment.rasacr',{'rasa_id': rasa.id} ) }}"
+                                class="btnn   btnn-pchel">  написать запрос
+                            </a>
+
+                        </li>
+                        <li></li><li></li>
+                        <li></li>
+                    </ul>
+                    <div class="ma-bo-1 pchelo-titul">
+                        <span class="  st-plem__kras"> Расы </span> зарегистрированные в БД
+                    </div>
+                {% else %}
+                    <ul class="pchelo__data pchelo__data--col">
+                        <li class="pchelo__name pchelo__name--wid34 pchelo__name-list--wid">  {{ rasa.title }} </li>
+                        <li class="pchelo__name pchelo__name--wid15 ">  {{ rasa.name }} </li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+    </div><!-- rasas -->
+
+{% endblock %}

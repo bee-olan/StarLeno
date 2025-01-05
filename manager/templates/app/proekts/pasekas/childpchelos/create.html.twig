@@ -1,0 +1,59 @@
+{% extends 'probase.html.twig' %}
+
+{% block title %}Create{% endblock %}
+
+{% block menupro %}
+    {{ include('app/proekts/_tabs.html.twig') }}
+    {{ include('app/proekts/page_glavas/pchelomatka/childs/_tabs.html.twig') }}
+{% endblock %}
+
+{% block kroxii %}
+    <a href="{{ path('app.proekts.page_glavas.pchelomatka.childs') }}"> Выбор инфы..</a>
+    <a href="{{ path('app.proekts.page_glavas.pchelomatka.childs.show') }}">Инфа: перед объявлением.</a>
+    <span class="aktiv ">Инфа:  объявление  дочек.</span>
+    <a href="{{ path('app.proekts.page_glavas.pchelomatka.spisok-instr') }}">Инфа: после объявления.</a>
+
+
+{% endblock %}
+
+{% block bodyy %}
+
+    <div class="  proekts proekts--pchelomat ">
+
+        <div class="inklud inklud--pchelomat">
+            {% set pchelosezonss = pchelosezonChild +1 %}
+            <div class="pchelo-title pchelo-teni ">
+                {% if childpchelo.parent %}
+                    <a href="{{ path('app.proekts.pasekas.childpchelos.show', {'id': childpchelo.parent.id}) }}"
+                       style="color: #155799;; "> {{ childpchelo.parent.name }} </a>
+                {% else %}
+                    <span class="strongo--elit "> Дочь - Пчело </span> {{ pchelomatka.name }} <span
+                        class="strongo--elit ">
+                    сезон </span>  {{ pchelosezonChild }} - {{ pchelosezonss }}
+
+                {% endif %}
+
+            </div>
+        </div>
+
+        <div class="proekts-plr  ">
+            <div class=" ">
+                <span>Заполняем </span>
+                <span class=" pchelo-titul--col "> 6-ть </span>
+                <span class="  "> позиций:</span>
+            </div>
+
+            <div class="elit-form__header  ">
+                <div class="elit-form ">
+                    {{ form_start(form) }}
+                    {{ form_widget(form) }}
+                    <div>
+                        <button type="submit" class="btnn-elit ">- Сохранить -</button>
+                    </div>
+                    {{ form_end(form) }}
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

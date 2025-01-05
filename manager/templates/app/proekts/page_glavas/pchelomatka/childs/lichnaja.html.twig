@@ -1,0 +1,32 @@
+{% extends 'probase.html.twig' %}
+
+{% block title %}ПчелоМатка{% endblock %}
+
+
+{% block menupro %}
+    {{ include('app/proekts/_tabs.html.twig') }}
+    {{ include('app/proekts/page_glavas/pchelomatka/childs/_tabs.html.twig') }}
+{% endblock %}
+
+{% block kroxii %}
+    <a href="{{ path('app.proekts.page_glavas.pchelomatka.childs.spisok-instr') }}">Инфа: после объявления.</a>
+    <span class="aktiv ">Инфа: Личная страничка</span>
+{% endblock %}
+
+{% block bodyy %}
+    <div class=" pa-to-2  ">
+
+        <div class=" ma-bo-2 zagol-pchelo-child-44 ">
+            Инфа: <span class="col-beloe">Личная </span>  страничка Дочь - Маток. &nbsp;
+        </div>
+
+            <div class="foto-pchelo child-lich-stran"></div>
+
+        <h1 class="zagol-pchelo-child-44     ">
+            Попасть  на <span class="col-beloe"> личную </span>   страничку можно только двойным переходом через
+            <a class="btnn btnn-filtr"
+               href="{{ path('app.proekts.pasekas.childpchelos') }}"> Список
+            </a>
+        </h1>
+    </div>
+{% endblock %}

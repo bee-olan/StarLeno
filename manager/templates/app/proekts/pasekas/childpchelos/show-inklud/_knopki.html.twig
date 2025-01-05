@@ -1,0 +1,94 @@
+<div class="controls-m">
+    {% if  childpchelo.author.id == uchastie.id %}
+        {# Это автор  #}
+        {% if childpchelo.hasExecutor(uchastie.id) %}
+            {% if childpchelo.isNew() %}
+                <form action="{{ path('app.proekts.pasekas.childpchelos.start', {'id': childpchelo.id}) }}"
+                      method="post"
+                      onsubmit="return confirm('Вы точно решили?')">
+                    <input type="hidden" name="token" value="{{ csrf_token('start') }}"/>
+                    <button type="submit" class="btnn-elit">Автор: начинаю</button>
+                </form>
+            {% endif %}
+        {% else %}
+            <form action="{{ path('app.proekts.pasekas.childpchelos.take', {'id': childpchelo.id}) }}" method="post"
+                  onsubmit="return confirm('Вы уверены?')">
+                <input type="hidden" name="token" value="{{ csrf_token('take') }}"/>
+                <button type="submit" class=" btnn-elit">Автор: беру</button>
+            </form>
+
+            <a href="{{ path('app.proekts.pasekas.childpchelos.assign', {'id': childpchelo.id}) }}"
+               class="btnn-elit">Автор: Назначить Тестера
+            </a>
+
+            {% if childpchelo.isNew() %}
+                <form action="{{ path('app.proekts.pasekas.childpchelos.take_and_start', {'id': childpchelo.id}) }}"
+                      method="post" onsubmit="return confirm('Вы уверены?')">
+                    <input type="hidden" name="token" value="{{ csrf_token('take-and-start') }}"/>
+                    <button type="submit" class="btnn-elit">Автор: беру и начинаю</button>
+                </form>
+            {% endif %}
+        {% endif %}
+
+
+        {#        <a href="{{ path('proekt.pasekas.rasas.linias.izChildLinia', {'pchelomatka_id' : pchelomatka.id, 'department_id' : departId }) }}?vetka={{ childpchelo.id }} "#}
+        {#           class="btnn btnn--pt btnn--col-child">Перевести в ПлемМатку#}
+        {#        </a>#}
+        {#                <a href="{{ path('app.proekts.pasekas.childpchelos.create', {'pchelomatka_id': pchelomatka.id}) }}?parent={{ childpchelo.id }}"#}
+        {#        <a class="btnn  btnn--pt btnn--col-child" href="#">#}
+        {#       #}
+        {#                </a>#}
+        <a href="{{ path('app.proekts.pasekas.childpchelos.create', {'pchelomatka_id': pchelomatka.id}) }}?parent={{ childpchelo.id }}"
+           class="btnn-elit">
+            Добавить Дочь-Пчело
+        </a>
+        {#        <div class="btn-group">#}
+        {#            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true"#}
+        {#                    aria-expanded="false">#}
+        {#                Перети&hellip;#}
+        {#            </button>#}
+        {#            <div class="dropdown-menu" x-placement="bottom-start">------#}
+        {#                #}{#                <a class="dropdown-item" href="{{ path('app.proekts.pasekas.childpchelos.move', {'id': childpchelo.id}) }}">Перейти к ПлемМатке&hellip;</a>#}
+        {#                #}{#                <a class="dropdown-item"#}
+        {#                #}{#                   href="{{ path('app.proekts.pasekas.childpchelos.child', {'id': childpchelo.id}) }}">Установлен#}
+        {#                #}{#                    как Дочерний элемент&hellip;</a>#}
+        {#                Установлен как Дочерний элемент#}
+        {#                #}{#               <form class="dropdown-item" action="{{ path('app.proekts.pasekas.childpchelos.delete', {'id': childpchelo.id}) }}" method="post" onsubmit="return confirm('Вы уверены?')">#}
+        {#                #}{#                   <input type="hidden" name="token" value="{{ csrf_token('delete') }}" />#}
+        {#                #}{#                   <button type="submit" class="btn" style="padding: 0">Удалить</button>#}
+        {#                #}{#               </form>#}
+        {#                <button type="submit" class="btn" style="padding: 0">Удалить</button>#}
+        {#            </div>#}
+        {#        </div>#}
+
+    {% else %}
+
+        {# участник заказавает маточку #}
+        {% if childpchelo.hasExecutor(uchastie.id) %}
+
+            {% if childpchelo.isZakaz() %}
+                {#                <form action="{{ path('app.proekts.pasekas.childpchelos.start', {'id': childpchelo.id}) }}" method="post"#}
+                {#                      onsubmit="return confirm('Вы точно решили?')">#}
+                {#                    <input type="hidden" name="token" value="{{ csrf_token('start') }}"/>#}
+                {#                    <button type="submit" class="btnn btnn--mb0 btnn--pt btnn--col-child">#}
+                Тестер: Получил(а). Начинаю тестировать
+                {#                    </button>#}
+                {#                </form>#}
+            {% endif %}
+        {% else %}
+            {#            <form action="{{ path('app.proekts.pasekas.childpchelos.zakaz', {'id': childpchelo.id}) }}" method="post"#}
+            {#                  onsubmit="return confirm('Вы уверены?')">#}
+            {#                <input type="hidden" name="token" value="{{ csrf_token('zakaz') }}"/>#}
+            {#                <button type="submit"#}
+            class="btnn btnn--mb0 btnn--pt btnn--col-child"> Тестер: Заказываю
+            {#                </button>#}
+            {#            </form>#}
+        {% endif %}
+    {% endif %}  {#===if author =====#}
+
+    {#    {% if childpchelo.hasExecutor(uchastie.id) %}#}
+    {#        <a href="{{ path('app.proekts.pasekas.izchildbrend.izchild') }}?parent={{ childpchelo.id }}"#}
+    {#           class="btnn  btnn--pt btnn--col-child">Перевести в БрендМатку</a>#}
+    {#    {% endif %}#}
+
+</div>

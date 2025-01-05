@@ -1,0 +1,198 @@
+.child-tabl {
+  width: 100%;
+  margin-bottom: 1rem;
+  //color: $text;
+  color: $text-elit-swet;
+  font-size: 1.2rem;
+  //line-height: 1.5;
+}
+.child-tabl-hover tbody tr:hover {
+
+  background-color: inherit;
+}
+.child-tabl-col-elit{
+  padding: .5rem .5rem .5rem 1rem;
+  color: $elit-col;
+}
+
+.child-tabl-col-pchelo{
+  padding: .5rem .5rem .5rem 1rem;
+  color: $beloe-new;
+}
+
+.child-tabl-col {
+  padding: .5rem .5rem .5rem 1rem;
+  color: $elit-col-pro7;
+}
+
+.child-th{
+  color: $col-kategor;
+}
+.child-tabl-bord {
+
+  border: 1px solid rgba($elit-child-color, 0.5);
+  color: $elit-col-pro7;;
+
+}
+
+//////////////////////////////////
+.row-m {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: 0;
+}
+
+.col-m {
+  flex: 0 0 33.33333%;
+  max-width: 33.33333%;
+  position: relative;
+  // width: 156%;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.col-8-m {
+  flex: 0 0 66%;
+  max-width: 66%;
+
+}
+
+.col-4-m {
+  flex: 0 0 33%;
+  max-width: 33%;
+}
+.card-m {
+  margin-bottom: 1.5rem;
+}
+
+.card-m {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  //text-align: center;
+  background-color: #fff;
+  background-clip: border-box;
+
+  border: 1px solid $child-text;;
+  border-radius: .25rem;
+
+  &--elit {
+    box-shadow: inset 0 0 10px rgba($elit-col, 0.9);
+    color: $beloe-new;
+    background-color: $elit-col-pro1;
+  }
+
+  &--pchelo {
+    border: 1px solid $beloe-new;
+    box-shadow: inset 0 0 10px rgba($beloe-new, 0.9);
+    color: $beloe-new;
+
+    background-color: #a09e9e;
+  }
+}
+
+.card-header-m {
+  padding: .6rem .7rem;
+  margin-bottom: 0;
+  box-shadow: inset 0 0 10px rgba($child-text, 0.9);
+  border-bottom: 1px solid $child-text;
+
+  &--elit {
+    color:  $col-kategor;
+    font-size: 1.2rem;
+    box-shadow: inset 0 0 10px rgba($elit-col, 0.9);
+    border-bottom: 1px solid $elit-col-pro7;
+  }
+
+  &--pchelo {
+    color: $beloe-new;
+    font-size: 1.2rem;
+    box-shadow: inset 0 0 10px rgba($beloe-new, 0.9);
+    border-bottom: 1px solid $beloe-new;
+  }
+}
+.controls-m {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  padding-top: 1rem;
+  margin-bottom: 20px;
+}
+
+.border-top-el {
+  border-top: 1px solid $col-kategor;
+}
+
+.border-top-pchelo {
+  border-top: 1px solid $beloe-new;
+}
+
+.card-body-m {
+  flex: 1 1 auto;
+  padding: 0.7rem;
+  text-align: left;
+
+  > .comment-form-elit {
+    form {
+      div {
+        .form-group {
+          label {
+            text-align: center;
+            margin: .5rem 0;
+            font-size: 1.3rem;
+            color: $red;
+          }
+
+          textarea {
+            background-color: $transpar !important;
+            border: 1px solid $elit-col-pro7;
+            resize: vertical;
+          }
+        }
+      }
+
+      button {
+        margin: 1rem 0;
+
+        >.btn-bu {
+          display: inline-block; // чтобы падинги корректно работали
+          vertical-align: top;
+          padding: 1.1em 1.6em;
+          // падинги сделаем в em -эначит будут зависить от шрифта
+          // меняем size шрифта - автоматом изменится падинги
+          background-color: $transpar !important;
+          color: $col-kategor;
+          border: none; // убираем бордер
+          cursor: pointer;
+          border-radius: 3em; // скругляем
+
+          font-family: inherit; //шрифт наследуется у родителя
+          font-size: 1.2rem;
+          line-height: 1.1; //
+          //font-weight: 500;
+
+          text-decoration: none; //убираем подчеркивание
+          // плавное изменение цвета
+          transition: background-color .3s linear;
+
+
+          &:hover {
+            background: linear-gradient( $grad2, $grad1);
+            color: red;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+
+
+}
+
+.pull-right-m {
+  float: right;
+}

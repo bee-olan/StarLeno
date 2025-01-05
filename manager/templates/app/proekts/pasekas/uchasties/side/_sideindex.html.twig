@@ -1,0 +1,54 @@
+<aside class="sidebarr">
+
+    <div class="sidebarr__header">
+        <div class="logo_es"></div>
+    </div>
+
+
+    <div class="sidebarr__content">
+        <div class="profilee">
+
+            <div class="bloknot-kar"></div>
+            {% if uchastie and  persona and mestoNomer %}
+
+                <div class="profilee__name profilee__name--kras">  {{ uchastie.name.full}},   </div>
+                <div class="profilee__name ">
+                   <span class="blink"> ( {{ uchastie.nike}}  ) </span>
+                </div>
+                <div class="profilee__prof profilee__prof--centerr"> Вы участник  проекта ! </div>
+            {% else %}
+
+            <div class="profilee__header">
+
+                <div class="profilee__name"> Стать
+                   <span class="blink"> участником </span>
+                    проекта  </div>
+
+                <div class="profilee__prof"> Всё очень просто! </div>
+            </div>
+            <ul >
+                <li><span class="profilee__name blink">=> </span> Выбрать ПерсонНомер</li>
+
+                <li><span class="profilee__name blink">=></span> Найти номер места пасеки </li>
+
+                <li><span class="profilee__name blink">=></span> Выбрать группу и  Ник </li>
+            </ul>
+            {% endif %}
+            <div class="profilee__text">
+                <div class="profilee__header">           
+                    <div class="profilee__name"> Внимание! </div>
+                    <div class="profilee__prof ma-bo-2"> Если обнаружили ошибку </div>
+                    <button class="btnn  btnn-uchas " type="button" data-modal="contact-modal">
+                    напишите мне
+                </button>
+                </div>
+            </div>     
+                        
+        </div><!-- /.profile -->
+    
+       
+    </div><!-- /.sidebar__content -->
+
+		
+
+</aside>

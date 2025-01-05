@@ -1,0 +1,47 @@
+// .no_break{
+
+//   @include breakpoint($mobile-bp) {
+//     display: none;
+//   }
+// }
+
+// .break{
+//   display: none;
+//   @include breakpoint($mobile-bp) {
+//    display: block;
+//   }
+// }
+// .break-mat-create{
+//   display: block;
+
+//   @include breakpoint($mobile-bp) {
+//     display: none;
+//     }
+// }
+// .break-mat-create-mobil{
+//   display: none;
+
+//   @include breakpoint($mobile-bp) {
+//     display: block;
+
+//     }
+// }
+
+
+.mat_break_no{
+  // display: none;
+
+  //@include breakpoint($spisok-bp) {
+  //  display: none;
+  //  // margin-left: -2rem;
+  // }
+}
+
+.mat_break{
+  display: none;
+
+  //@include breakpoint($spisok-bp) {
+  //  display: block;
+  //  margin-left: -2rem;
+  // }
+}

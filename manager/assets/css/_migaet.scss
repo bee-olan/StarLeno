@@ -1,0 +1,22 @@
+
+//.text-flicker {
+//  animation: flicker 3s infinite; /* Параметры анимации */
+//}
+//@keyframes flicker {
+//  from { opacity: 1; /* Непрозрачный текст */ }
+//  to { opacity: 0; /* Прозрачный текст */ }
+//}
+.blink {
+  animation: blink 3s infinite; /* Параметры анимации */
+}
+@keyframes blink {
+  from {
+    opacity: .9; /* Непрозрачный текст */
+    color: $red;
+  }
+  to {
+    opacity: 1; /* Прозрачный текст */
+  color: $beloe-new;
+  }
+}
+

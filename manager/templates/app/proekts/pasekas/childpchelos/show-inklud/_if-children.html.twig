@@ -1,0 +1,59 @@
+<div class=" proekts pro-pchelomat">
+
+
+    <div class="inklud inklud--childpchelo ">
+
+        <div class="pchelo-title  pchelo-teni ">
+
+            Дочки Дочь - Пчело
+
+        </div>
+    </div>
+    {% if children %}
+        <table class="table table-bordered table-hover mb-0">
+            <thead>
+            <tr>
+                <th>Дата выхода</th>
+                <th>Имя</th>
+                <th>Облет</th>
+                <th>Автор</th>
+                <th><span class="fa fa-fire"></span></th>
+                <th>Тестер</th>
+                <th>Статус</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for child in children %}
+                <tr>
+                    <td>{{ child.date|date('d-m-Y') }}</td>
+
+                    <td>
+                        <a href="{{ path('app.proekts.pasekas.childpchelos.show', {'id': child.id}) }}">{{ child.name }}</a>
+                    </td>
+                    <td>
+                        {% if child.type != 'none' %}
+                            {{ paseka_matkas_childmatka_type(child.type) }}
+                        {% endif %}
+                    </td>
+                    <td>{{  child.author_name }}</td>
+                    <td>{{ paseka_matkas_childmatka_priority(child.priority) }}</td>
+                    <td>
+                        {% for executor in child.executors %}
+                            <span class="badge badge-default" style="background: #eee">{{ executor.name }}</span>
+                        {% endfor %}
+                    </td>
+                    <td>{{ paseka_matkas_childmatka_status(child.status) }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <div class="elit-titul elit-titul--col ">
+            <span class="elit-titul  child-tabl-col-pchelo"  >  Дочерних  пока -   </span>
+            <span >   нет  </span>
+        </div>
+    {% endif %}
+</div>
+
+

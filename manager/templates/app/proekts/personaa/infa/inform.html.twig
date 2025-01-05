@@ -1,0 +1,83 @@
+{% extends 'probase.html.twig' %}
+
+{% block title %}Информация {% endblock %}
+
+{% block sidebarr %}
+    {{ include('app/proekts/personaa/side/_sideinform.html.twig') }}
+{% endblock %}
+
+{% block menupro %}
+    {{ include('app/proekts/_tabs.html.twig') }}
+    {{ include('app/proekts/page_glavas/uchastieGl/_tabs.html.twig') }}
+{% endblock %}
+
+{% block kroxii %}
+    <span class="aktiv">Инфа: ПерсонНомер (картинки)</span> 
+    <a href="{{ path('app.proekts.personaa.infa.infas') }}">Инфа: Все ПерсонНомера</a>
+    <a href="{{ path('app.proekts.personaa.nomer.diapazon') }}">Выбрать ПерсонНомер</a>
+ 
+{% endblock %}
+
+
+{% block bodyy %}
+    {# <div class="proekts pro-mesto"> #}
+    <div class="ma-to-1 ma-le-2">
+
+        <h2 class="zagol-teni-44 ">
+             <span class="col-kras">От </span>
+            выбора 
+             <span class="col-kras">к </span>
+            выбору. Сделайте и всё получится :</h2>
+
+
+
+       <ul class="mestoo__title">       
+            
+
+            <li class="mestoo__title-item ">
+                <a href="{{ path('app.proekts.personaa.nomer.diapazon') }}">
+                    <div class="foto pers-d"></div>
+                </a>
+            </li>
+            <li class="zagol-teni-44  zagol-teni-44--px32">
+                 <span class="col-kras">1. </span>     Выбрать диапазон
+               </li>
+       </ul>
+       <ul class="mestoo__title">
+            
+            <li class="zagol-teni-44  zagol-teni-44--px32">
+               <span class="col-kras">2. </span>   Выбрать Номер 
+            </li>
+
+            <li class="mestoo__title-item ">
+                    <div class="foto pers-n"></div>
+            </li>
+        </ul>
+        <ul class="mestoo__title">
+           
+            <li class="mestoo__title-item ">
+                    <div class="foto pers-s"></div>
+            </li>
+             
+            <li class="zagol-teni-44  zagol-teni-44--px32">
+                <span class="col-kras">3. </span>   Сохранить или изменить
+            </li>
+        </ul>
+ 
+        <ul class="mestoo__title">
+            
+            <li class="zagol-teni-44  zagol-teni-44--px32">
+                 <span class="col-kras">4. </span>    Смотреть результат и продолжить
+            </li>
+
+            <li class="mestoo__title-item ">
+                    <div class="foto pers-es"></div>
+            </li>
+        </ul>
+
+    </div>
+
+    <h1 class="zagol-teni-44  zagol-teni-44--px32  ma-to-2">
+      <p> <span class="col-kras">P.S. </span>  
+      Перейти на нужную страничку можно из среднего меню </p>или нажав на первую картинку. </h1>
+{% endblock %}

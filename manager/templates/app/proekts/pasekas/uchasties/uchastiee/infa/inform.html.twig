@@ -1,0 +1,87 @@
+{% extends 'probase.html.twig' %}
+
+{% block title %}Информация {% endblock %}
+
+{% block sidebarr %}
+    {{ include('app/proekts/personaa/side/_sideinform.html.twig') }}
+{% endblock %}
+
+{% block menupro %}
+    {{ include('app/proekts/_tabs.html.twig') }}
+    {{ include('app/proekts/page_glavas/uchastieGl/_tabs.html.twig') }}
+{% endblock %}
+
+{% block kroxii %}
+    <span class="aktiv">Инфа:  Стать участником (картинки)</span> 
+    <a href="{{ path('app.proekts.pasekas.uchasties.uchastiee.infa.infas') }}">Инфа: Все Участники</a>
+    <a href="{{ path('app.proekts.pasekas.uchasties.uchastiee') }}">Стать участником</a>  
+{% endblock %}
+
+
+{% block bodyy %}
+    {# <div class="proekts pro-mesto"> #}
+    <div class="ma-to-1 ma-le-2">
+
+        <h2 class="zagol-teni-44 ">Все этапы на одной страничке  :</h2>
+
+
+
+       <ul class="mestoo__title">       
+            
+
+            <li class="mestoo__title-item ">
+                <a href="{{ path('app.proekts.pasekas.uchasties.uchastiee') }}">
+                    <div class="foto uch-1"></div>
+                </a>
+            </li>
+            <li class="zagol-teni-44  zagol-teni-44--px32">
+                    Для выбора 
+                   <p> <span class="col-kras">ПерсонНомера и НомераМеста </span></p>
+                    можно воспользоваться <p>ссылками на этой страничке </p>
+               </li>
+       </ul>
+       <ul class="mestoo__title">
+            
+            <li class="zagol-teni-44  zagol-teni-44--px32">
+               Заполнение доп. данных  
+            </li>
+
+            <li class="mestoo__title-item ">             
+                    <div class="foto uch-2"></div>
+            </li>
+        </ul>
+        <ul class="mestoo__title">
+           
+            <li class="mestoo__title-item ">
+                    <div class="foto uch-3"></div>      
+            </li>
+             
+            <li class="zagol-teni-44  zagol-teni-44--px32">
+                 Выбираем название группы,
+                <p>заполняем Ник.</p> Всё -  сохранить. 
+            </li>
+        </ul>
+ 
+        <ul class="mestoo__title">
+            
+            <li class="zagol-teni-44  zagol-teni-44--px32">
+                  <span class="col-kras">Ура!!! </span>
+               <p> Вы стали Участником проекта</p>
+            </li>
+
+            <li class="mestoo__title-item ">
+                <a href="{{ path('app.proekts.pasekas.uchasties.uchastiee') }}">
+                    <div class="foto uch-4"></div>
+                </a>
+            </li>
+        </ul>
+
+    </div>
+    <div class="ma-to-4">
+        <h1 class="zagol-teni-44  zagol-teni-44--px32  ma-to-2">
+            <span class="col-kras">P.S. </span>  Теперь на главной страничке читаем 
+        </h1>
+            <div class="foto uch-5"></div>
+   </div>   
+    
+{% endblock %}

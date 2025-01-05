@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Сезоны{% endblock %}
+
+ {% block kroxii %}
+     <a href="{{ path('proekt') }}">Главная</a>
+     <span class="aktiv ">Выбор сезона!</span>
+ {% endblock %}
+
+{% block body %}
+
+    <div class="ma-to-2">
+        {{ include('app/adminka/pchelomatkas/_tabs.html.twig') }}
+    </div>
+
+    <div class="box">
+        <div class="proekts proekts--sezon pb0">
+            <div class="inklud">
+                <div class="ma-le_6">
+                    <div class="drevimg "></div>
+                </div>
+                <div class="inklud__title teni">
+                    Выбор Сезона
+                </div>
+            </div>
+
+            <div class="proekts-plr  ">
+                <div class="controls pa-to-1">
+                    <a href="{{ path('adminka.sezons.godas.create') }}" class="btnn  btnn-log">
+                        Добавить новый сезон
+                    </a>
+                </div>
+                <div class="box">
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                        <tr>
+                            <th> Год</th>
+                            <th> Сезон</th>
+                            <td>Участников</td>
+                            <td>ТестМаток</td>
+
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for goda in godass %}
+                            <tr>
+                                <td>{{ goda.god }}
+                                    {#                                    <a href="{{ path('adminka.sezons.godas.create') }}">#}
+                                    {#                                        {{ goda.god }}#}
+                                    {#                                    </a>#}
+                                </td>
+                                <td>
+                                    {#                                    <a href="{{ path('adminka.sezons.godas.uchasgoda', {'id': goda.id}) }}">#}
+                                    {{ goda.sezon }}
+                                    {#                                    </a>#}
+                                </td>
+                                <td>
+                                    ..... {#                                    {{ goda.uchasgoda_count }}#}
+                                </td>
+                                <td> ----------</td>
+
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

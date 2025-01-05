@@ -1,0 +1,84 @@
+{% extends 'probase.html.twig' %}
+
+{% block title %}ПчелоМатка{% endblock %}
+
+
+{% block menupro %}
+    {{ include('app/proekts/_tabs.html.twig') }}
+    {{ include('app/proekts/page_glavas/pchelomatka/_tabs.html.twig') }}
+{% endblock %}
+
+{% block kroxii %}
+    <a href="{{ path('app.proekts.page_glavas.pchelomatka') }}"> Выбор инфы..</a>
+    <a href="{{ path('app.proekts.page_glavas.pchelomatka.show') }}"> Инфа: перед регистрацией.</a>
+    <a href="{{ path('app.proekts.page_glavas.pchelomatka.reg-infa') }}">Инфа: регистрация матки.</a>
+    <span class="aktiv ">Инфа: после регистрации.</span>
+{% endblock %}
+
+{% block bodyy %}
+    <div class=" pa-to-2  ">
+
+        <div class=" ma-bo-2 zagol-teni-44 col-bel-text">
+            Инфа: <span class="col-kras">после </span> регистрации. &nbsp;
+        </div>
+
+        <div class="proekts-plr  ">
+
+            <ul class="mestoo__title ">
+                <li class="zagol-teni-44  zagol-teni-44--px32 col-bel-text ">
+                    <span class="col-kras"> Все </span>
+                    переходы для работы с конкретной маткой
+                    возможны со странички: <span class="col-kras"> Список</span>
+
+                    <p class="ma-to-1">
+                        <a class="btnn btnn-filtr"
+                           href="{{ path('app.proekts.pasekas.pchelomatkas.spisoks') }}">
+                            Список
+                        </a>
+                    </p>
+                </li>
+
+                <li class="mestoo__title-item ">
+                    <div class="foto-pchelo pchelo-spisok-wse"></div>
+                </li>
+            </ul>
+
+
+            <div class="ma-to-2">
+                <ul class="mestoo__title">
+                    <li class="mestoo__title-item ">
+                        <div class="drevimg "></div>
+                    </li>
+                    <li class="zagol-teni-44  zagol-teni-44--px32 col-bel-text pa-le-2">
+                        - переход к работе с конкретной маткой
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="ma-to-2">
+                <ul class="mestoo__title">
+                    <li class="mestoo__title-item ">
+                        <div class="matimg "></div>
+                    </li>
+                    <li class="zagol-teni-44  zagol-teni-44--px32 col-bel-text pa-le-2">
+                        - объявление Дочь - Пчело
+                    </li>
+
+                </ul>
+            </div>
+            <div class="ma-to-2">
+                <ul class="mestoo__title">
+                    <li class="zagol-teni-44  zagol-teni-44--px32 col-bel-text ">
+                        Расшифровка сокращений в названии Пчело - Матки
+                    </li>
+
+                    <li class="mestoo__title-item ">
+                        <div class="foto-pchelo pchelo-shifr"></div>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

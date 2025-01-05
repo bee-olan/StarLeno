@@ -1,0 +1,112 @@
+{% extends 'probase.html.twig' %}
+
+{% block title %}Добавить расу{% endblock %}
+
+
+{% block menupro %}
+    {{ include('app/proekts/_tabs.html.twig') }}
+    {{ include('app/proekts/page_glavas/pchelomatka/_tabs.html.twig') }}
+{% endblock %}
+
+
+{% block kroxii %}
+    <a href="{{ path('app.proekts.page_glavas.pchelomatka.show') }}">Инфа: перед регистрацией.</a>
+    <a href="{{ path('app.proekts.pasekas.pchelomatkas.rasa-pchelos.infa') }}">Инфа: Новая раса.</a>
+    <a href="{{ path('app.proekts.pasekas.pchelomatkas.rasa-pchelos.rasapchelo') }}">Расы из БД - обзор.</a>
+    <span class="aktiv ">Написать запрос.</span>
+
+{% endblock %}
+
+{% block bodyy %}
+
+    <div class=" proekts pro-pchelomat">
+
+        <div class="inklud inklud--pchelomat ">
+
+            <div class="pchelo-title  pchelo-teni ">
+                Запрос на новое название расы
+            </div>
+        </div>
+
+
+        <div class="proekts-plr  ma-le-2">
+
+            <div class="ma-bo-1 pchelo-titul">
+                Написать запрос: название Расы (полное и сокращенное)
+            </div>
+            <div class="proekts proekts-pchelo ">
+                <div class="proekts-plr  ">
+{#                    <h1 class="ras__title  ">Написать запрос </h1>#}
+
+                    <div class="zapros-form__header pa-to-2 ">
+                        <div class="zapros-form ">
+                            {{ form_start(commentForm) }}
+
+                            {{ form_widget(commentForm) }}
+
+                            <button type="submit" class="btnn  btnn-pchel ">Отправить</button>
+                            {{ form_end(commentForm) }}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ma-bo-1 col-kras pchelo-titul">
+                Отправленные запросы
+            </div>
+            <div class="proekts proekts--rasa">
+                <div class="proekts-plr  ">
+
+                    {% if comments|length %}
+                        <div class="card-body">
+                            <div class="direct-chat">
+                                <div class="direct-chat-messages">
+                                    {% for comment in comments %}
+                                        <div class="direct-chat-msg">
+                                            <div class="direct-chat-info clearfix">
+                                                <span class="direct-chat-name pull-left">{{ comment.author_nike }}</span>
+                                                <span class="direct-chat-timestamp pull-right">{{ comment.date|date('d-m-Y H:i') }}</span>
+                                            </div>
+                                            <img class="direct-chat-img" src="{{ gravatar(comment.author_email, 40) }}"
+                                                 alt="">
+                                            <div class="direct-chat-text direct-chat-text--rasa">
+                                                {#                                                {{ comment.text|markdown|purify|adminka_processor }}#}
+                                                {{ comment.text|markdown|purify }}
+                                                {% if is_granted('manage', comment) %}
+                                                    <div class="controls ma-to-1">
+                                                        <a href="{{ path('app.proekts.pasekas.pchelomatkas.rasa-pchelos.comment.edit',
+                                                            {'rasa_id': rasa.id, 'id': comment.id}) }}"
+                                                           class="btnn btnn-pchel">
+
+                                                            <div class="karandash karandash--child">
+                                                                <div class="karanda-kar"></div>
+                                                            </div>
+                                                        </a>
+                                                        <form action="{{ path('app.proekts.pasekas.pchelomatkas.rasa-pchelos.comment.delete', {'rasa_id': rasa.id, 'id': comment.id}) }}"
+                                                              method="post" onsubmit="return confirm('Are you sure?')">
+                                                            <input type="hidden" name="token"
+                                                                   value="{{ csrf_token('delete-comment') }}"/>
+                                                            <button type="submit"
+                                                                    class="btnn  btnn-pchel">
+
+                                                                <div class="delit-kar"></div>
+                                                            </button>
+                                                        </form>
+                                                        <span class="itall ma-le-26  col-kras"> Запрос принят </span>
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+
+        </div>
+    </div><!-- rasas -->
+
+{% endblock %}

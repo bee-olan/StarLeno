@@ -1,0 +1,95 @@
+{% extends 'probase.html.twig' %}
+
+{% block title %}Информация {% endblock %}
+
+     {% block sidebarr %}
+         {% if personas %}
+             {{ include('app/proekts/personaa/side/_side-es.html.twig') }}
+         {% else %}
+             {{ include('app/proekts/personaa/side/_sideinform.html.twig') }}
+         {% endif %}
+     {% endblock %}
+
+{% block menupro %}
+    {{ include('app/proekts/_tabs.html.twig') }}
+    {{ include('app/proekts/page_glavas/uchastieGl/_tabs.html.twig') }}
+{% endblock %}
+
+{% block kroxii %}
+    <a href="{{ path('app.proekts.personaa.infa.inform') }}">Инфа: ПерсонНомер (картинки)</a>
+    <span class="aktiv">Инфа: Все ПерсонНомера</span>
+    <a href="{{ path('app.proekts.personaa.nomer.diapazon') }}">Выбрать ПерсонНомер</a>
+
+{% endblock %}
+
+
+{% block bodyy %}
+
+    <div class="proekts pro-mesto">
+
+        <div class="wstavka pchelo-teni">
+            ПерсонНомера участников проекта
+        </div>
+
+
+        {% if personas %}
+            <h2 class="pagee__title ">Все выбраные ПерсонНомера </h2>
+
+            <div class="proekts-plr">
+                <div class="ramka">
+                    {% for persona in personas %}
+                        <div class="personaa-nomer">
+                            {{ persona.nomer }}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+        {% endif %}
+
+        <div class="mestoo__linia-top"></div>
+        {% if personanom %}
+
+
+            <div class="proekts-plr">
+                <div class="ramka">
+                    <h2 class="personaa__title "><strong class="strongo--name-nike">{{ last }}, </strong>
+                        Ваш ПерсонНомер
+                    </h2>
+                    <div class="personaa-nomer">
+                        <strong class="strongo--name-nike">{{ personanom.nomer }}</strong>
+                    </div>
+                </div>
+            </div>
+            <div class="proekts-plr">
+                <div class="wstavka wstavka--uch back-color-uch">
+                    <h2 class="personaa__title    ">Стать участником !!! </h2>
+                    <a class="btnn ma-to-1  btnn-uchas"
+                       href="{{ path('app.proekts.pasekas.uchasties.uchastiee') }}">
+                        продолжить
+                    </a>
+                </div>
+            </div>
+        {% else %}
+
+            <h2 class="pagee__title ">
+                <span class="col-kras "> {{ last }} </span>
+
+                , для участия в проекте Вам нужно выбрать
+                <a href="/app/proekts/personaa/nomer/diapazon">
+                    <span class="col-kras">  ПерсонНомер.</span>
+                </a>
+
+            </h2>
+
+            <div class="pagee__title ma-bo-2">
+                <p class="ma-to-2"> Забыли с чего начать? </p>
+                <p class="ma-to-2 "> Начните с просмотра пошаговой инструкции:
+                    <a href="/app/proekts/personaa/infa/inform">
+                        <span class="strongo"> Инфа:  ПерсонНомер (картинки) </span>
+                    </a>
+                </p>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

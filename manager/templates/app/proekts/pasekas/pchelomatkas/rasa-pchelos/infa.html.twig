@@ -1,0 +1,59 @@
+{% extends 'probase.html.twig' %}
+
+{% block title %}Категории{% endblock %}
+
+
+{% block menupro %}
+    {{ include('app/proekts/_tabs.html.twig') }}
+    {{ include('app/proekts/page_glavas/pchelomatka/_tabs.html.twig') }}
+{% endblock %}
+
+{% block kroxii %}
+    <a href="{{ path('app.proekts.page_glavas.pchelomatka.show') }}">Инфа: перед регистрацией матки.</a>
+    <span class="aktiv ">Инфа: Новая раса.</span>
+    <a href="{{ path('app.proekts.pasekas.pchelomatkas.rasa-pchelos.rasapchelo') }}">Расы из БД - обзор.</a>
+
+{% endblock %}
+
+{% block bodyy %}
+    <div class=" proekts pro-pchelomat">
+
+        <div class="inklud inklud--pchelomat ">
+
+            <div class="pchelo-title  pchelo-teni ">
+                Инфа: Новая раса.&nbsp; &nbsp;
+            </div>
+        </div>
+        <div class="proekts-plr  ">
+
+            <ul class=" ma-bo-2  pchelo-titul">
+                <li >
+                        <span class=" col-kras"> 1)</span>   Запрос на ещё одно название расы:
+                </li>
+                <li  class=" ">
+                     <div class="ma-le_6">
+                         <span class=" col-kras"> - </span> сокращенное название расы
+                         <span class=" col-kras">:  Бф </span>
+                    </div>
+                 </li>
+                <li  class=" ">
+                    <div class="ma-le_6">
+                        <span class=" col-kras"> - </span> полное название
+                        <span class=" col-kras">:  Бакфаст </span>
+                    </div>
+                </li>
+            </ul>
+
+
+            <ul class=" ma-bo-2  pchelo-titul">
+                <li >
+                    <span class=" col-kras"> 2)</span>
+                    <a href="{{ path('app.proekts.pasekas.pchelomatkas.rasa-pchelos.rasapchelo') }}">Напишите и отправьте запрос.</a>
+
+                </li>
+            </ul>
+
+        </div>
+        <div class="foto-pchelo rasaa-zapr"></div>
+    </div>
+{% endblock %}

@@ -1,0 +1,106 @@
+parameters:
+    # Adds a fallback DATABASE_URL if the env var is not set.
+    # This allows you to run cache:warmup even if your
+    # environment variables are not available yet.
+    # You should not need to change this value.
+    env(DATABASE_URL): ''
+
+doctrine:
+    dbal:
+        # configure these for your database server
+        driver: 'pdo_pgsql'
+        server_version: '11.2'
+        charset: utf8
+        default_table_options:
+            charset: utf8
+            collate: -
+
+        url: '%env(resolve:DATABASE_URL)%'
+
+#        schema_filter: '~^(?!work_projects_tasks_seq)~'
+
+        types:
+            user_user_id: 'App\Model\User\Entity\User\IdType'
+            user_user_email: 'App\Model\User\Entity\User\EmailType'
+            user_user_role: 'App\Model\User\Entity\User\RoleType'
+
+            mesto_okrug_id: 'App\Model\Mesto\Entity\Okrugs\IdType'
+            mesto_okrug_oblast_id: 'App\Model\Mesto\Entity\Okrugs\Oblasts\IdType'
+            mesto_okrug_oblast_raion_id: 'App\Model\Mesto\Entity\Okrugs\Oblasts\Raions\IdType'
+            mesto_mestonomer_id: 'App\Model\Mesto\Entity\InfaMesto\IdType'
+
+            comment_comment_id: 'App\Model\Comment\Entity\Comment\IdType'
+            comment_comment_author_id: 'App\Model\Comment\Entity\Comment\AuthorIdType'
+
+            admin_uchasties_group_id: 'App\Model\Adminka\Entity\Uchasties\Group\IdType'
+            admin_uchasties_uchastie_id: 'App\Model\Adminka\Entity\Uchasties\Uchastie\IdType'
+            admin_uchasties_uchastie_status: 'App\Model\Adminka\Entity\Uchasties\Uchastie\StatusType'
+            admin_uchasties_uchastie_email: 'App\Model\Adminka\Entity\Uchasties\Uchastie\EmailType'
+            adminka_uchasties_persona_id: 'App\Model\Adminka\Entity\Uchasties\Personas\IdType'
+
+            dre_ras_id: 'App\Model\Drevos\Entity\Rass\IdType'
+#            dre_ras_rod_id: 'App\Model\Drevos\Entity\Rass\Rods\IdType'
+#            dre_ras_rod_stranmat_id: 'App\Model\Drevos\Entity\Rass\Rods\StranMats\IdType'
+#            dre_ras_rod_lini_id: 'App\Model\Drevos\Entity\Rass\Rods\Linis\IdType'
+#            dre_ras_rod_lini_wet_id: 'App\Model\Drevos\Entity\Rass\Rods\Linis\Wetkas\IdType'
+#            dre_ras_rod_lini_wet_nomw_id: 'App\Model\Drevos\Entity\Rass\Rods\Linis\Wetkas\NomWets\IdType'
+#            dre_ras_rod_lini_wet_nomw_trut_id: 'App\Model\Drevos\Entity\Rass\Rods\Linis\Wetkas\NomWets\MatTruts\IdType'
+#            dre_ras_rod_lini_wet_nomw_nom_stat: 'App\Model\Drevos\Entity\Rass\Rods\Linis\Wetkas\NomWets\MatTruts\Noms\StatuType'
+#            dre_ras_rod_lini_wet_nomw_nom_id: 'App\Model\Drevos\Entity\Rass\Rods\Linis\Wetkas\NomWets\MatTruts\Noms\IdType'
+#
+#            dre_ras_linibr_id: 'App\Model\Drevos\Entity\Rass\LiniBr\IdType'
+#            dre_ras_linibr_vet_id: 'App\Model\Drevos\Entity\Rass\LiniBr\VetkaBr\IdType'
+#            dre_ras_linibr_vet_nom_id: 'App\Model\Drevos\Entity\Rass\LiniBr\VetkaBr\NomerBr\IdType'
+#            dre_ras_linibr_vet_nom_status: 'App\Model\Drevos\Entity\Rass\LiniBr\VetkaBr\NomerBr\StatusType'
+
+            admin_sezons_goda_id: 'App\Model\Adminka\Entity\Sezons\Godas\IdType'
+
+            admin_pchel_kategoria_id: 'App\Model\Adminka\Entity\PcheloMatkas\Kategoria\IdType'
+            admin_pchel_kategoria_permissions: 'App\Model\Adminka\Entity\PcheloMatkas\Kategoria\PermissionsType'
+
+            admin_pchelomat_id: 'App\Model\Adminka\Entity\PcheloMatkas\PcheloMatka\IdType'
+            admin_pchelomat_status: 'App\Model\Adminka\Entity\PcheloMatkas\PcheloMatka\StatusType'
+            admin_pchelomat_pchelosezon_id: 'App\Model\Adminka\Entity\PcheloMatkas\PcheloMatka\Pchelosezon\IdType'
+
+            admin_pchelo_child_id: 'App\Model\Adminka\Entity\PcheloMatkas\ChildPchelos\IdType'
+            admin_pchelo_child_type: 'App\Model\Adminka\Entity\PcheloMatkas\ChildPchelos\TypeType'
+            admin_pchelo_child_status: 'App\Model\Adminka\Entity\PcheloMatkas\ChildPchelos\StatusType'
+
+            admin_pchelo_child_file_id: 'App\Model\Adminka\Entity\PcheloMatkas\ChildPchelos\File\IdType'
+            admin_pchelo_child_change_id: 'App\Model\Adminka\Entity\PcheloMatkas\ChildPchelos\Change\IdType'
+    orm:
+        auto_generate_proxy_classes: true
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: true
+        mappings:
+            User:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Model/User/Entity'
+                prefix: 'App\Model\User\Entity'
+                alias: User
+            Mesto:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Model/Mesto/Entity'
+                prefix: 'App\Model\Mesto\Entity'
+                alias: Mesto
+            Comment:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Model/Comment/Entity'
+                prefix: 'App\Model\Comment\Entity'
+                alias: User
+            Adminka:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Model/Adminka/Entity'
+                prefix: 'App\Model\Adminka\Entity'
+                alias: Adminka
+
+            Drevos:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Model/Drevos/Entity'
+                prefix: 'App\Model\Drevos\Entity'
+                alias: Drevos

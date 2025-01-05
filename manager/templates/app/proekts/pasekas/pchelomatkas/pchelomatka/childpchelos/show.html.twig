@@ -1,0 +1,89 @@
+{% extends 'probase.html.twig' %}
+
+{% block title %}Редактирование{% endblock %}
+
+{% block menupro %}
+    {{ include('app/proekts/_tabs.html.twig') }}
+    {{ include('app/proekts/page_glavas/pchelomatka/childs/_tabs.html.twig') }}
+{% endblock %}
+
+   {% block kroxii %}
+       <a href="{{ path('app.proekts.pasekas.pchelomatkas.pchelomatka.redaktors.instr') }}">Инфа: Все переходы</a>
+       <a href="{{ path('app.proekts.pasekas.pchelomatkas.pchelomatka.redaktors.show', {'pchelomatka_id': pchelomatka.id})  }}">Добавить сезон. Статус</a>
+       <span class="aktiv ">Сезон выхода Дочь - Пчело </span>
+   {% endblock %}
+
+{% block bodyy %}
+
+    <div class=" proekts pro-pchelomat">
+
+        <div class="inklud inklud--pchelomat ">
+
+            <div class="pchelo-title  pchelo-teni ">
+               Выход Дочек. Выбрать из  сезонов  ПчелоМатки
+            </div>
+        </div>
+
+
+        <div class="proekts-plr">
+
+            <div class="pchelo-titul ">
+                <span>{{ pchelomatka.name }} </span>
+                <span class=" pchelo-titul--col "> -- Пчело-Матка и её рабочие
+                сезоны</span>
+            </div>
+            {% for pchelovod in pchelovods %}
+                <div class="pchelo-titul ">
+                    <span class="strongo strongo--kras">{{ pchelovod.uchastie.nike }} , </span>
+                    <span>  внимательно выбирайте </span>
+                    <span class="strongo strongo--kras"> сезон </span> :
+                </div>
+
+                <ul class="plem plem__jus-st ">
+                    <li class="ma-le-2 ">
+                        <ul class="list-unstyled my-0">
+                            {% for pchelosezon in pchelovod.pchelosezons %}
+                                {% set perii = pchelosezon.name + 1 %}
+                                <li>
+                                    {% if pchelomatka %}
+
+                                        <div class="controls">
+                                            <a href="{{ path('app.proekts.pasekas.pchelomatkas.pchelomatka.childpchelos.create', {'pchelomatka_id' : pchelomatka.id, 'pchelosezon_id' : pchelosezon.id  } ) }}"
+                                               class="btnn   btnn-pchel  ">
+                                                <span class="strongo strongo--kras">{{ pchelosezon.name }} - {{ perii }}</span>
+                                                -
+                                                объявить (добавить) Дочь - Пчело
+                                            </a>
+                                        </div>
+                                    {% endif %}
+
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+
+                </ul>
+            {% endfor %}
+
+            <ul class="pchelo pchelo__jus-st ">
+                
+                <li> &nbsp;
+                    <a href="{{ path('app.proekts.pasekas.pchelomatkas.pchelomatka.redaktors.pchelovods.edit',
+                        {'pchelomatka_id': pchelomatka.id}) }}" class="   btnn-elit">
+                       <span class="strongo strongo--kras">  Объявить </span>  ещё сезон
+                    </a>
+                </li>
+                <li> &nbsp;
+                    <a href="{{ path('app.proekts.pasekas.pchelomatkas.pchelomatka.redaktors.pchelosezons.create',
+                        {'pchelomatka_id': pchelomatka.id}) }}" class="  btnn-elit ">
+                        <span class="strongo strongo--kras">  Добавить </span> ещё сезон!
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+
+
+
+{% endblock %}

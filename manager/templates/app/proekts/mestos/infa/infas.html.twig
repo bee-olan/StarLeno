@@ -1,0 +1,85 @@
+{% extends 'probase.html.twig' %}
+
+{% block title %}Информация {% endblock %}
+
+   {% block sidebarr %}
+       {% if mestonomer %}
+           {{ include('app/proekts/mestos/side/_side-es.html.twig') }}
+       {% else %}
+           {{ include('app/proekts/mestos/side/_sideinform.html.twig') }}
+       {% endif %}
+   {% endblock %}
+
+{% block menupro %}
+    {{ include('app/proekts/_tabs.html.twig') }}
+    {{ include('app/proekts/page_glavas/uchastieGl/_tabs.html.twig') }}
+{% endblock %}
+
+{% block kroxii %}
+    <a href="{{ path('app.proekts.mestos.infa.inform') }}">Инфа: НомерМеста (картинки)</a>
+    <span class="aktiv">Инфа: Все НомераМест</span>
+    <a href="{{ path('app.proekts.mestos.okrugs') }}">Начало - выбрать Округ</a>
+{% endblock %}
+
+
+{% block bodyy %}
+
+    <div class="proekts pro-mesto">
+
+        <div class="wstavka pchelo-teni">
+            Номера мест расположения пасек участников проекта
+        </div>
+
+        <div class="proekts-plr">
+            <div class="ramka">
+                {% for mestonom in fetcher %}
+                    <div class="ramka__mesto-nomer">
+                        {{ mestonom.mestonomer }}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+
+        <div class="mestoo__linia-top"></div>
+        {% if mestonomer %}
+            <h2 class="pagee__title "><span class="col-kras">{{ last }} </span>, номер места
+                расположения Вашей пасеки </h2>
+            <div class="ramka">
+                <div class="ramka__mesto-nomer mestoo__nomer-text">
+                    {{ mestonomer.nomer }}
+                </div>
+            </div>
+
+            <div class="proekts-plr">
+                <div class="wstavka wstavka--uch back-color-uch">
+                    <h2 class="personaa__title    ">Стать участником !!! </h2>
+                    <a class="btnn ma-to-1  btnn-uchas"
+                       href="{{ path('app.proekts.pasekas.uchasties.uchastiee') }}">
+                        продолжить
+                    </a>
+                </div>
+            </div>
+        {% else %}
+
+            <h2 class="pagee__title ">
+                <span class="col-kras "> {{ last }} </span>
+
+                , для участия в проекте Вам нужно выбрать
+                <a href="/app/proekts/mestos/okrugs">
+                    <span class="col-kras">  НомерМеста.</span>
+                </a>
+
+            </h2>
+
+            <div class="pagee__title ma-bo-2">
+                <p class="ma-to-2"> Забыли с чего начать? </p>
+                <p class="ma-to-2 "> Начните с просмотра пошаговой инструкции:
+                    <a href="/app/proekts/mestos/infa/inform">
+                        <span class="strongo"> Инфа:  НомерМеста (картинки) </span>
+                    </a>
+                </p>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

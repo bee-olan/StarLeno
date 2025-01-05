@@ -1,0 +1,43 @@
+{% extends 'probase.html.twig' %}
+
+{% block title %}{{ childpchelo.name }}{% endblock %}
+
+{# {% block kroxii %}#}
+{#        <a href="{{ path('proekt') }}">Главная</a>#}
+{#        <a href="{{ path('proekt.pasekas.matkas.plemmatkas') }}">Рег-ция ПлемМатки</a>#}
+{#        <span class="aktiv ">Добавить тестирующего</span>#}
+{#    {% endblock %}#}
+
+{% block bodyy %}
+<div class="proekts proekts--childpchelo pb0">
+    <div class="inklud inklud--child">
+{#        <div class="inklud__img">#}
+{#            <img class="" src="{{ asset('assets/proekt/images/matkas/matki_.png') }}" alt="">#}
+{#        </div>#}
+
+        <div class="inklud__title teni--">
+           Назначьте исполнителя - тестирующего
+           {{childpchelo.name}}
+        </div>
+    </div>
+
+   <h1 class="mt-0 mb-3 font-xl">-----обязательно проверить--------------
+{#       {% if childpchelo.parent %}#}
+{#           <a href="{{ path('work.projects.childpchelos.show', {'id': childpchelo.parent.id}) }}">{{ childpchelo.parent.name }}</a> /#}
+{#       {% endif %}#}
+   </h1>
+
+    <div class="plem-form__header  ">
+            <div class="child-form ">
+
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <div>
+                <button type="submit" class="btnn  btnn--pt btnn--col-child">Назначить</button>
+            </div>
+            {{ form_end(form) }}
+
+        </div>
+    </div>
+
+{% endblock %}

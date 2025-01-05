@@ -1,0 +1,20 @@
+{% extends 'probase.html.twig' %}
+
+{% block title %}ПлемМатка{% endblock %}
+
+
+{% block menupro %}
+    {{ include('app/proekts/_tabs.html.twig') }}
+
+ {{ include('app/proekts/page_glavas/elitmatka/_tabs.html.twig') }}
+{% endblock %}
+
+{% block kroxii %}
+    <a href="{{ path('app.proekts.basepro') }}">Главная iii</a>
+    <span class="aktiv ">ЕлитМатки</span>
+{% endblock %}
+
+{% block bodyy %}
+
+    <h1 class="zagol-teni zagol-teni--em4 ma-bo-2">Авторизация</h1>
+{% endblock %}

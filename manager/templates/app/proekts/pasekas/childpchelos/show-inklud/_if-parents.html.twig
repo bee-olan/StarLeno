@@ -1,0 +1,29 @@
+<div class=" proekts pro-pchelomat">
+
+
+    <div class="inklud inklud--childpchelo ">
+
+        <div class="pchelo-title  pchelo-teni ">
+            Материнка Дочь - Пчело
+        </div>
+    </div>
+
+    <div class="elit-titul elit-titul--col td_cent">
+        {% if childpchelo.parent %}
+            <a href="{{ path('app.proekts.pasekas.childpchelos.show', {'id': childpchelo.parent.id}) }}">
+                <span class="elit-titul  ">  Материнка  -   </span>
+                  <span class="child-tabl-col ">  {{ childpchelo.parent.name }}  </span>
+            </a>
+            <span class="elit-titul  ">  > для >   </span>
+        {% else %}
+{#            <a href="{{ path('app.proekts.pasekas.childpchelos.show', {'id': childpchelo.parent.id}) }}">#}
+                <span class="elit-titul  ">  Материнка  -   </span>
+            <span class="st-plem__kras  ">  {{ childpchelo.pchelomatka.name }}   </span>
+
+{#            </a>#}
+            <span class="elit-titul  ">  > для >   </span>
+        {% endif %}
+        <span class="elit-titul  child-tabl-col-pchelo">  {{ childpchelo.name }}   </span>
+
+    </div>
+</div>

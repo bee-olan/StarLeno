@@ -1,0 +1,148 @@
+{% extends 'probase.html.twig' %}
+
+{% block title %}Стать участником{% endblock %}
+
+{% block menupro %}
+    {{ include('app/proekts/_tabs.html.twig') }}
+    {{ include('app/proekts/page_glavas/uchastieGl/_tabs.html.twig') }}
+{% endblock %}
+
+
+{% block kroxii %}
+      
+    <a href="{{ path('app.proekts.pasekas.uchasties.uchastiee.infa.inform') }}">Инфа: Стать участником (картинки)</a>
+    <a href="{{ path('app.proekts.pasekas.uchasties.uchastiee.infa.infas') }}">Инфа: Все Участники</a>
+
+    <span class="aktiv">Стать участником</span>
+{% endblock %}
+
+{% block sidebarr %}
+    {{ include('app/proekts/pasekas/uchasties/side/_sideindex.html.twig') }}
+{% endblock %}
+
+{% block bodyy %}
+    
+    <div class="proekts pro-uhastiee">
+
+        <div class="wstavka  pchelo-teni ">
+            Стать участником. Дополнительные данные.
+        </div>
+
+
+        <div class="uchastiee__header  ">
+
+            {% if uchastie and  persona and mestoNomer %}
+                <h2 class="pagee__title "><strong class="strongo--name-nike"> {{ uchastie.name.full }} </strong> ,
+                    Вы зарегистрированны в проекте </h2>
+            {% else %}
+                <h2 class="pagee__title "> Чтобы стать участником проекта, нужно 
+                 заполнить пункты 1 - 3 </h2>
+            {% endif %}
+
+            <ul class="uchastiee__data">
+                {% if persona %}
+                    <li class="uchastiee__galka">
+                        <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-check2" fill="currentColor"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                  d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+                        </svg>
+                    </li>
+                    <li class="uchastiee__name  uch-tabl__linia uch-tabl__linia--col">Ваш ПерсонНомер</li>
+                    <li>
+                        <div class="uchastiee-nomer uchastiee-nomer__wid8">
+                            {{ persona.nomer }}
+                        </div>
+                    </li>
+                    <li></li>
+                {% else %}
+                    <li class="uchastiee__name uch-tabl__linia uch-tabl__linia--col">1. Выбрать для себя персональный
+                        номер
+                    </li>
+                    <li>
+                        <a href="{{ path('app.proekts.personaa.nomer.diapazon') }}"
+                           class="btnn ma-to-2 btnn-uchas"> Выбрать ПерсонНомер
+                        </a>
+                    </li>
+                    <li></li>
+                {% endif %}
+            </ul>
+
+            <ul class="uchastiee__data">
+                {% if mestoNomer %}
+                    <li class="uchastiee__galka">
+                        <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-check2" fill="currentColor"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                  d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+                        </svg>
+                    </li>
+                    <li class="uchastiee__name uch-tabl__linia uch-tabl__linia--col">Номер места распол.</li>
+                    <li>
+                        <div class="uchastiee-nomer uchastiee-nomer__wid12">
+                            {{ mestoNomer.nomer }}
+                        </div>
+                    </li>
+                    <li></li>
+                {% else %}
+                    <li class="uchastiee__name  uch-tabl__linia uch-tabl__linia--col">2. Определиться с номером места
+                        расположения пасеки
+                    </li>
+                    <li>
+                        <a class="btnn ma-to-2 btnn-uchas" href="{{ path('app.proekts.mestos.okrugs') }}">
+                            НомерМеста
+                        </a>
+                    </li>
+                    <li></li>
+                {% endif %}
+            </ul>
+            <ul class="uchastiee__data">
+                {% if uchastie %}
+
+                    <li class="uchastiee__galka">
+                        <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-check2" fill="currentColor"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                  d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+                        </svg>
+                    </li>
+                    <li class="uchastiee__name uch-tabl__linia uch-tabl__linia--col">
+                        <strong class="strongo--name-nike"> {{ uchastie.nike }}</strong>
+                        , данные о Вашем участии записаны в БД.
+                    </li>
+                    <li></li>
+                    <li></li>
+                {% else %}
+                    <li class="uchastiee__name  uch-tabl__linia uch-tabl__linia--col">3. Подтвердить Ваше участие с
+                        заполнением доп. данных
+                    </li>
+                    <li>
+                        <a class="btnn ma-to-2 btnn-uchas"
+                           href="{{ path('app.proekts.pasekas.uchasties.uchastiee.create') }}">
+                            Продолжаем ...
+                        </a>
+                    </li>
+                    <li></li>
+                {% endif %}
+            </ul>
+            {% if uchastie and  persona and mestoNomer %}
+                <div class="proekts-plr  ">
+                    <ul class="mestoo__title">
+                        <li class="sidebarr__footer-text">
+                            Начинаем работу с <span class="col-beloe"> матками, </span>
+                            переходим по ссылке
+                            <a class="btnn btnn-uchas" href="{{ path('proekt') }}">тут</a> <br>
+                            или  <span class="col-beloe"> в меню </span>
+                        </li>
+
+                        <li class="mestoo__title-item ">
+                            <div class="foto-nachalo es-uchastnik"></div>
+                        </li>
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+        {# </div> #}
+    </div><!-- uchastie -->
+
+{% endblock %}

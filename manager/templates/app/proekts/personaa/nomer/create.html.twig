@@ -1,0 +1,52 @@
+{% extends 'probase.html.twig' %}
+
+{% block title %}Персональный номер{% endblock %}
+
+{% block sidebarr %}
+    {{ include('app/proekts/personaa/side/_sidecreate.html.twig') }}
+{% endblock %}
+
+{% block menupro %}
+    {{ include('app/proekts/_tabs.html.twig') }}
+    {{ include('app/proekts/page_glavas/uchastieGl/_tabs.html.twig') }}
+{% endblock %}
+
+{% block kroxii %}
+    <a href="{{ path('app.proekts.personaa.infa.inform') }}">Инфа:  ПерсонНомер</a>
+{#    <span class="aktiv">ПерсонНомер</span>#}
+{#    <a href="{{ path('app.proekts.personaa.inform') }}">Инфа о ПерсонНомерах</a>#}
+    <a href="{{ path('app.proekts.personaa.nomer.diapazon') }}">Выбор Диапазона</a>
+    <a href="{{ path('app.proekts.personaa.nomer', { 'itogo': itogo}) }}">ПерсонНомера</a>
+    <span class="aktiv">Сохранить в БД</span>
+
+{% endblock %}
+
+{% block bodyy %}
+
+    <div class="proekts pro-mesto">
+
+        <div class="wstavka pchelo-teni">
+            Сохранить  ПерсонНомер
+        </div>
+
+        <div class="personaa-ramka">
+            <h2 class="personaa__title ">Вы выбрали персональный номер : </h2>
+            <div class="personaa-nomer">
+              <span class="blink">{{ person }}</span>
+            </div>
+
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <button type="submit" class="btnn btnn-pers">Сохранить в БД</button>
+            {{ form_end(form) }}
+        </div>
+        <div class="mestoo__linia-top"></div>
+        <div class="personaa">
+            <h2 class="pagee__title "> Если ошиблись - вернитель на страничку
+                <a class="btnn btnn-pers" href="{{ path('app.proekts.personaa.nomer', { 'itogo': itogo} ) }}">
+                    <span class="strongo"> ПерсонНомера</span>
+                </a>
+            </h2>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends 'probase.html.twig' %}
+
+{% block title %}Категории{% endblock %}
+
+{% block sidebarr %}
+    {% include('app/proekts/pasekas/pchelomatkas/kategoris/_side_kateg.html.twig') %}
+{% endblock %}
+
+{% block menupro %}
+    {{ include('app/proekts/_tabs.html.twig') }}
+    {{ include('app/proekts/page_glavas/pchelomatka/_tabs.html.twig') }}
+{% endblock %}
+
+{% block kroxii %}
+    <a href="{{ path('app.proekts.page_glavas.pchelomatka.show') }}">Инфа: перед регистрацией.</a>
+    <a href="{{ path('app.proekts.pasekas.pchelomatkas.kategoris.infa') }}">Инфа: Новая категория.</a>
+    <span class="aktiv ">Обзор категорий.</span>
+
+{% endblock %}
+
+
+{% block bodyy %}
+
+    <div class=" proekts pro-pchelomat">
+
+        <div class="inklud inklud--pchelomat ">
+
+            <div class="pchelo-title  pchelo-teni ">
+                Смотрим наличие категории и характеристик
+            </div>
+        </div>
+        {% for kategoria in kategorias %}
+
+            {% if  kategoria.name == "-" %}
+                <ul class="pchelo__data pchelo__data--col ma-bo-2">
+                    <li class="ma-le-1 pchelo__name--wid34">
+                        <div class=" pchelo-titul ">
+                            <span class=" blink"> Внимание! </span> Если у Вас свои обозначения категории и
+                            характеристик:
+                        </div>
+
+                    </li>
+                    <li>
+                        <div class="ma-to-1 pchelo-titul ">
+                            <a href="{{ path('app.proekts.pasekas.pchelomatkas.kategoris.comment.kategcr',{'kategoria_id': kategoria.id} ) }}"
+                               class="btnn   btnn-pchel"> напишите запрос
+                            </a>
+                        </div>
+                    </li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            {% endif %}
+
+        {% endfor %}
+
+    </div>
+
+    <div class="proekts proekts--kategor">
+
+        <div class="inklud inklud--pchelomat ">
+
+            <div class="pchelo-title  pchelo-teni ">
+                Варианты условных обозначений для ПчелоМаток&nbsp; &nbsp;
+            </div>
+        </div>
+
+
+        {% include('app/proekts/pasekas/pchelomatkas/kategoris/_kategor-includ.html.twig') %}
+
+    </div><!-- uchastie -->
+
+{% endblock %}

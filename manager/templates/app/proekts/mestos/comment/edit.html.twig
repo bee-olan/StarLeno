@@ -1,0 +1,47 @@
+{% extends 'probase.html.twig' %}
+
+{% block title %}{{ okrug.name }}{% endblock %}
+
+{% block menupro %}
+    {{ include('app/proekts/_tabs.html.twig') }}
+
+    {{ include('app/proekts/page_glavas/uchastieGl/_tabs.html.twig') }}
+{% endblock %}
+
+{% block kroxii %}
+    <a href="{{ path('app.proekts.basepro') }}">Главная</a>
+    <a href="{{ path('app.proekts.mestos.inform') }}">Информация</a>
+    <a href="{{ path('app.proekts.mestos.okrugs') }}">Место</a>
+    <a href="{{ path('app.proekts.mestos.okrugs', {'okrug_id': okrug.id} ) }}">Номера Округов</a>
+    <span class="aktiv">Редактировать запрос</span>
+{% endblock %}
+
+{% block bodyy %}
+
+    <div class="proekts pro-mesto">
+
+        <div class="wstavka">
+            <div class=" nav-teni">
+               Запрос на новое название
+            </div>
+        </div>
+
+        <div class=" proekts-plr">
+            <div class="mestoo__title-item mestoo__nomer-text ma-to-1 ma-bo-1">
+                <span class="blink"> Редактировать</span> запрос : Республика / Край / Область + Район
+            </div>
+
+            <div class="mesto-form__header  ">
+                <div class="mesto-form ">
+
+                    {{ form_start(form) }}
+                    {{ form_widget(form) }}
+                    <div>
+                        <button type="submit" class="btnn btnn-mesto">Сохранить изменения</button>
+                    </div>
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends 'probase.html.twig' %}
+
+{% block title %}ПчелоМатка{% endblock %}
+
+
+{% block menupro %}
+    {{ include('app/proekts/_tabs.html.twig') }}
+    {{ include('app/proekts/page_glavas/pchelomatka/_tabs.html.twig') }}
+{% endblock %}
+
+{% block kroxii %}
+    <a href="{{ path('app.proekts.page_glavas.pchelomatka') }}"> Выбор инфы.</a>
+    <span class="aktiv ">Инфа: перед регистрацией.</span>
+    <a href="{{ path('app.proekts.page_glavas.pchelomatka.reg-infa') }}">Инфа: регистрация матки.</a>
+    <a href="{{ path('app.proekts.page_glavas.pchelomatka.spisok-instr') }}">Инфа: после регистрации.</a>
+{% endblock %}
+
+{% block bodyy %}
+
+    <div class=" pa-to-2  ">
+        <div class=" ma-bo-4 zagol-teni-44 col-bel-text">
+            Инфа: <span class="col-kras">перед </span> регистрацией&nbsp;
+        </div>
+        <div class="proekts-plr  ">
+
+
+            <ul class="mestoo__title ">
+
+                <li class="zagol-teni-44  zagol-teni-44--px32 col-bel-text ">
+                    <span class="col-kras"> 1) </span>
+                    Пред регистрацией Пчело - Матки, обязательно определитесь с
+                    <span class="col-kras"> категориями.</span>
+                    <p class="ma-bo-1">
+                        Возможно у Вас свои представления о названиях
+                        категорий и их <span class="col-kras">характеристиках. </span>
+                    </p>
+                    Пишите, обсудим и добавим.
+                    <p class="ma-to-1">
+                        <a class="btnn btnn-filtr"
+                           href="{{ path('app.proekts.pasekas.pchelomatkas.kategoris.kategor') }}">
+                            Категории. Трут. фон
+                        </a>
+                    </p>
+                </li>
+
+                <li class="mestoo__title-item ">
+                    <div class="foto-pchelo pchel-kateg"></div>
+                </li>
+            </ul>
+            <div class="ma-to-4">
+                <ul class="mestoo__title ">
+                    <li class="zagol-teni-44  zagol-teni-44--px32 col-bel-text ">
+                        <span class="col-kras"> 2) </span>
+                        Пожалуйста,  проверьте наличие нужного названия
+                        <span class="col-kras"> расы.</span>
+                        <p > В списке нет -</p>
+
+                            <span class="col-kras">напишите запрос. </span>
+                        <p class="ma-to-1">
+                       Добавим  название в БД.
+                        </p>
+                        <p class="ma-to-1">
+                            <a class="btnn btnn-filtr"
+                               href="{{ path('app.proekts.pasekas.pchelomatkas.rasa-pchelos.rasapchelo') }}">
+                                Расы - смотреть
+                            </a>
+                        </p>
+                    </li>
+                    <li class="mestoo__title-item ">
+                        <div class="foto-pchelo pchel-rasa"></div>
+                    </li>
+                </ul>
+            </div>
+
+
+
+
+        </div>
+    </div>
+{% endblock %}

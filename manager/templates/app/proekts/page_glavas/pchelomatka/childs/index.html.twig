@@ -1,0 +1,56 @@
+{% extends 'probase.html.twig' %}
+
+{% block title %}ПчелоДочь{% endblock %}
+
+
+{% block menupro %}
+    {{ include('app/proekts/_tabs.html.twig') }}
+    {{ include('app/proekts/page_glavas/pchelomatka/childs/_tabs.html.twig') }}
+{% endblock %}
+
+{% block kroxii %}
+    <span class="aktiv ">Выбор инфы.</span>
+    <a href="{{ path('app.proekts.page_glavas.pchelomatka.childs.show') }}">Инфа: перед объявлением.</a>
+    <a href="{{ path('app.proekts.page_glavas.pchelomatka.childs.reg-infa') }}">Инфа:  объявление  дочек.</a>
+    <a href="{{ path('app.proekts.page_glavas.pchelomatka.childs.spisok-instr') }}">Инфа: после объявления.</a>
+
+{% endblock %}
+
+{% block bodyy %}
+    <div class="ma-bo-2 pa-to-2 ma-ri-8">
+
+        <h1 class="zagol-teni-44  ">
+            <span class="col-kras">Шаг  третий ! </span>
+        </h1>
+        <h2 class="zagol-pchelo-child-44">
+            Работа с <span class="col-beloe"> Дочь - Пчело.</span>
+            <p> Основные <span class="col-beloe">моменты </span> в картинках</p>
+        </h2>
+    </div>
+
+    <div class="ma-bo-2">
+        <div class="ma-bo-1">
+            <span class="zagol-pchelo-child-44 zagol-pchelo-child-44--px32 ">
+                <a href="{{ path('app.proekts.page_glavas.pchelomatka.childs.show') }}">
+                 1)   <span class="col-beloe">Перед </span>   объявлением (добавлением) дочек.
+                 </a>
+            </span>
+        </div>
+        <div class="ma-bo-1">
+            <span class="zagol-pchelo-child-44 zagol-pchelo-child-44--px32">
+                <a href="{{ path('app.proekts.page_glavas.pchelomatka.childs.reg-infa') }}">
+                  2)  <span class="col-beloe">Объявление (добавление)</span>   дочек.
+                </a>
+            </span>
+        </div>
+        <div>
+            <span class="zagol-pchelo-child-44 zagol-pchelo-child-44--px32">
+                <a href="{{ path('app.proekts.page_glavas.pchelomatka.childs.spisok-instr') }}">
+                  3)  <span class="col-beloe">После </span>  объявления (добавления) дочек.
+                </a>
+            </span>
+        </div>
+
+    </div>
+
+{% endblock %}

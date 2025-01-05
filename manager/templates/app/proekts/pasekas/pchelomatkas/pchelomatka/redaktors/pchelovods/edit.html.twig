@@ -1,0 +1,77 @@
+{% extends 'probase.html.twig' %}
+
+{% block title %}{{ pchelomatka.name }}{% endblock %}
+
+{% block menupro %}
+    {{ include('app/proekts/_tabs.html.twig') }}
+
+    {{ include('app/proekts/page_glavas/pchelomatka/_tabs.html.twig') }}
+{% endblock %}
+
+ {% block kroxii %}
+     <a href="{{ path('app.proekts.pasekas.pchelomatkas.pchelomatka.redaktors.instr') }}">Инфа: Все переходы</a>
+     <a href="{{ path('app.proekts.pasekas.pchelomatkas.pchelomatka.redaktors.show', {'pchelomatka_id': pchelomatka.id})  }}">Добавить сезон. Статус</a>
+     <span class="aktiv ">Объявить сезон</span>
+ {% endblock %}
+
+{% block bodyy %}
+
+    <div  class=" proekts pro-pchelomat">
+
+        <div class="inklud inklud--pchelomat ">
+
+            <div class="pchelo-title  pchelo-teni ">
+                Объявить новый сезон Пчело-Матки
+            </div>
+        </div>
+
+        <div class="proekts-plr  ">
+            {% if pchelomatka.active %}
+                <div class="pchelo-titul pchelo-titul--mt3  ">
+                    <span>{{ pchelomatka.name }} </span>
+                </div>
+                <div class="matki-form__header  ">
+                    <div class="matki-form ">
+
+                        {{ form_start(form) }}
+                        {{ form_widget(form) }}
+                        <div>
+                            <ul class="pchelo pchelo__jus-st ">
+                                <li>
+                                    <button type="submit" class="btnn  btnn-pchel">Сохранить</button>
+                                </li>
+                                <li class="pchelo__name--wid20"> &nbsp; &nbsp;
+                                    <a href="{{ path('app.proekts.pasekas.pchelomatkas.pchelomatka.redaktors.show',
+                                        {'pchelomatka_id': pchelomatka.id}) }}" class="btnn btnn-pchel">Или
+                                        вернуться на страничку</a>
+                                </li>
+                            </ul>
+                        </div>
+                        {{ form_end(form) }}
+
+                    </div>
+                </div>
+            {% endif %}
+
+            {% if pchelomatka.archived %}
+                <div class="elit-titul elit-titul--mt3">
+                     Вы не можете <span class="col-kras">объявить </span> новый сезон
+                    <span class="col-kras">Пчело-Матка </span> находится
+                    <span class="col-kras" >в архиве </span>
+
+                </div>
+
+                <ul class="plem plem__jus-st ma-to-2">
+
+                    <li class="plem__name--wid20"> &nbsp; &nbsp;
+                        <a href="{{ path('app.proekts.pasekas.pchelomatkas.pchelomatka.redaktors.show',
+                            {'pchelomatka_id': pchelomatka.id}) }}" class="btnn btnn-pchel">Вернуться на
+                            страничку</a>
+                    </li>
+                </ul>
+            {% endif %}
+        </div>
+
+    </div>
+
+{% endblock %}

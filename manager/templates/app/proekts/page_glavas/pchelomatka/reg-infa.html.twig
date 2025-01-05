@@ -1,0 +1,118 @@
+{% extends 'probase.html.twig' %}
+
+{% block title %}ПчелоМатка{% endblock %}
+
+
+{% block menupro %}
+    {{ include('app/proekts/_tabs.html.twig') }}
+    {{ include('app/proekts/page_glavas/pchelomatka/_tabs.html.twig') }}
+{% endblock %}
+
+{% block kroxii %}
+    <a href="{{ path('app.proekts.page_glavas.pchelomatka') }}"> Выбор инфы..</a>
+    <a href="{{ path('app.proekts.page_glavas.pchelomatka.show') }}">Инфа: перед регистрацией.</a>
+    <span class="aktiv ">Инфа:  регистрация матки.</span>
+    <a href="{{ path('app.proekts.page_glavas.pchelomatka.spisok-instr') }}">Инфа: после регистрации.</a>
+
+
+{% endblock %}
+
+{% block bodyy %}
+
+
+    <div class=" pa-to-2  ">
+
+        <div class=" ma-bo-2 zagol-teni-44 col-bel-text">
+            Инфа: <span class="col-kras">Регистрация </span> Пчело-Матки
+        </div>
+
+        <ul class="mestoo__title ">
+
+            <li class="zagol-teni-44  zagol-teni-44--px32 col-bel-text ">
+                <div class="ma-bo-2">
+                    <span class="col-kras">1) </span>
+                    Комментарий - можно не заполнять
+                </div>
+                <div class="ma-bo-2">
+                    <span class="col-kras">2) </span>
+                    Номер матки - натуральное число
+                </div>
+                <div class="ma-bo-2">
+                    <span class="col-kras">3) </span>
+                    Дата выхода - можно выбрать или набрать
+                </div>
+                <div class="ma-bo-2">
+                    <span class="col-kras"> 4) </span>
+                    Выбор расы - только для <span class="col-kras"> бр, бр/.. </span>
+                </div>
+                <div class="ma-bo-2">
+                    <span class="col-kras"> 5) </span>
+                    Категория - хар-ки категорий внизу страницы
+                </div>
+                <div class="ma-bo-2">
+                    <span class="col-kras"> 6) </span>
+                    Не забыть -
+                    <span class="col-kras"> Добавить в БД </span>
+                </div>
+                <div class="ma-bo-2">
+                    <a class="btnn btnn-filtr"
+                       href="{{ path('app.proekts.pasekas.pchelomatkas.pchelomatka.creates.create') }}">
+                        перейти к регистрации
+                    </a>
+                </div>
+            </li>
+
+            <li class="mestoo__title-item ">
+                <div class="foto-pchelo pchelo-reg"></div>
+            </li>
+        </ul>
+        <h1 class="zagol-teni-44  zagol-teni-44--px32 col-bel-text ma-to-2 ma-bo-2 ">
+            <span class="col-kras">P.S. </span>
+                Возникут вопросы во время регистрации:   на страничке слева - будут пояснения.
+        </h1>
+
+        <div class="ma-bo-2 ">
+            <ul class="mestoo__title">
+                <li class="zagol-teni-44  zagol-teni-44--px32 col-bel-text ">
+                    Если все получится - будет так
+                    <span class="col-kras"> -->></span>
+
+
+                    <p class="ma-to-1">
+                        На этой страничке рабочие
+                        ссылки:
+                    </p>
+
+                    <div class="ma-to-1 ma-bo-2">
+                        <p><span class="col-kras">1) </span>
+                            Добавить 3-и сезона</p>
+                    </div>
+                    <div class="ma-bo-2">
+                        <p><span class="col-kras">2) </span>
+                            Смотреть шифровку</p>
+                    </div>
+                    <div class="ma-bo-2">
+
+                        <p><span class="col-kras">3) </span>
+                            Список Ваших Пчело - Маток</p>
+                    </div>
+
+                </li>
+                <li class="mestoo__title-item ">
+                    <div class="foto-pchelo pchel-sdelano"></div>
+                </li>
+            </ul>
+        </div>
+
+        <h1 class="zagol-teni-44  zagol-teni-44--px32 col-bel-text ma-to-2 ma-bo-2 ">
+            <span class="col-kras">P.S. </span>
+            Разбор этих и всех возможных переходов смотреть на
+
+
+            <a class="btnn btnn-filtr"
+               href="{{ path('app.proekts.page_glavas.pchelomatka.spisok-instr') }}">
+                Инфа: <span class="col-kras">После</span> регистрации
+            </a>
+        </h1>
+    </div>
+{% endblock %}

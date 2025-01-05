@@ -1,0 +1,36 @@
+{% extends 'probase.html.twig' %}
+
+{% block title %}Создать участника{% endblock %}
+
+    {% block menupro %}
+        {{ include('app/proekts/_tabs.html.twig') }}
+        {{ include('app/proekts/page_glavas/uchastieGl/_tabs.html.twig') }}
+    {% endblock %}
+
+{% block kroxii %}
+    <a href="{{ path('app.proekts.pasekas.uchasties.uchastiee.infa.inform') }}">Инфа: Стать участником (картинки)</a>
+    
+    <span class="aktiv">Доп. данные</span>
+
+{% endblock %}
+
+{% block bodyy %}
+
+    <div class="proekts pro-uhastiee">
+
+        <div class="wstavka  pchelo-teni ">
+        
+             Группа, Ник, Стать участником
+        </div>
+
+        <div class="uchastiee__header  ">    
+            <div class="uchastiee-form "> 
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                <button type="submit" class="btnn btnn--mt btnn--pt">Стать участником</button>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

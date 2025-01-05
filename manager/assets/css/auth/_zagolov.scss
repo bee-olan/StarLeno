@@ -1,0 +1,124 @@
+.zagol {
+  //margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  max-width: 100%;
+  margin-right: 0;
+  margin-left: 0;
+  overflow: hidden; // в рамках размера -все лишнее скрылось overflow
+
+  background-color: transparent;
+  box-shadow: 0 5px 22px rgba(#23282c, .25);
+  border-radius: 5px;
+}
+
+.zagol-teni {
+  text-align: center;
+  font-family: 'Oleo Script', cursive;
+  font-size: 5rem;
+  color: transparent; /*это скроет текст*/
+  letter-spacing: 0.1em;
+  text-shadow: 0 1px 5px #ccb44b,
+
+  0 -1px 0 rgba(0, 0, 0, 1),
+  0 -3px 0 rgba(0, 0, 0, 0.25),
+  0 1px 0 rgba(255, 255, 255, 0.5),
+  0 2px 2px rgba(255, 255, 255, 0.2);
+
+  &--em4 {
+    font-size: 3.125rem;
+  }
+
+  &--px30 {
+    font-size: 2rem;
+  }
+}
+
+.zagol-teni-44 {
+  text-align: center;
+  font-family: 'Oleo Script', cursive;
+  font-size: 2.75rem;
+  color: transparent; /*это скроет текст*/
+  letter-spacing: 0.1em;
+
+  text-shadow: 1px 1px 5px #ccb44b,
+
+  2px 1px 0 black, 
+  0px -2px 5px rgba(0, 0, 0, 0.15), 
+  0 1px 0 rgba(255, 255, 255, 0.5), 
+  0px -2px 5px rgba(255, 255, 255, 0.07);
+
+  &--px32 {
+    font-size: 2rem;
+  }
+}
+
+.zagol-pchelo-child-44 {
+  text-align: center;
+  font-family: 'Oleo Script', cursive;
+  font-size: 2.75rem;
+  //color: #888;
+  color: transparent; /*это скроет текст*/
+  letter-spacing: 0.1em;
+
+  text-shadow: 1px 1px 5px #888,
+
+  -1px 2px 0 black,
+  0px -2px 5px rgba(0, 0, 0, 0.15),
+  0 1px 0 rgba(255, 255, 255, 0.5),
+  0px -2px 5px rgba(255, 255, 255, 0.07);
+
+  &--px32 {
+    text-align: left;
+    font-size: 2rem;
+  }
+}
+
+
+.zagol-teni-prof {
+  text-align: center;
+  font-family: 'Oleo Script', cursive;
+  font-size: 1.75rem;
+  color: transparent; /*это скроет текст*/
+  letter-spacing: 0.1em;
+
+  text-shadow: 1px 1px 5px #ccb44b,
+
+  2px 1px 0 black, 
+  0px -2px 5px rgba(0, 0, 0, 0.15), 
+  0 1px 0 rgba(255, 255, 255, 0.5), 
+  0px -2px 5px rgba(255, 255, 255, 0.07);
+}
+
+.col-beloe {
+  color:#afa970;;
+}
+.col-teni-child {
+  color: #888;
+}
+//40 Пиксели = 2,5 Rem
+//46 Пиксели = 2.875 Rem
+//38 Пиксели = 2,375 Rem
+//36 Пиксели = 2,25 Rem
+// 34 Пиксели = 2,125 Rem.
+//44 Пиксели = 2.75 Rem.
+//32 Пиксели = 2 Rem.
+
+
+
+.zagol-container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+
+  margin: -15rem auto 0 auto;
+}
+
+.zagol-col-md-8 {
+  flex: 0 0 70%;
+  max-width: 70%;
+  border-radius: 5px;
+  box-shadow: 0 5px 22px rgba(#23282c, .25);
+}
+.zagol-bg-primary{
+  background: linear-gradient($grad1, $grad2);
+}

@@ -1,0 +1,57 @@
+{% extends 'probase.html.twig' %}
+
+{% block title %}Добавить{% endblock %}
+
+   {% block menupro %}
+       {{ include('app/proekts/_tabs.html.twig') }}
+       {{ include('app/proekts/page_glavas/pchelomatka/childs/_tabs.html.twig') }}
+   {% endblock %}
+
+{% block kroxii %}
+    <a href="{{ path('app.proekts.page_glavas.pchelomatka.childs.reg-infa') }}">Инфа:  объявление  дочек..</a>
+    <span class="aktiv ">Заполняем позиции.</span>
+
+{% endblock %}
+
+{% block bodyy %}
+    {% set pchelosezonss = pchelosezonPlem +1 %}
+    <div class=" proekts pro-pchelomat">
+
+        <div class="inklud inklud--pchelomat ">
+
+            <div class="pchelo-title  pchelo-teni ">
+                {#            {% if childmatka.parent %}#}
+                {#                <a href="{{ path('app.proekts.pasekas.childmatkas.show', {'id': childmatka.parent.id}) }}"#}
+                {#                   style="color: #155799;; " > {{ childmatka.parent.name }} </a>#}
+                {#            {% else %}#}
+                <span class="strongo--elit "> Пчело-Матка </span> {{ pchelomatka.korotkoName }} <span class="strongo--elit ">
+                    сезон </span>  {{ pchelosezonPlem }} - {{ pchelosezonss }}
+
+                {#            {% endif %}#}
+
+            </div>
+        </div>
+
+        <div class="proekts-plr  ">
+            <div class="pchelo-titul ">
+                <span>Заполняем </span>
+                <span class=" pchelo-titul--col "> 6-ть </span>
+                <span class="  "> позиций:</span>
+            </div>
+
+            <div class="matki-form__header  ">
+                <div class="matki-form ">
+                    {{ form_start(form) }}
+                    {{ form_widget(form) }}
+                    <div>
+                        <button type="submit" class="btnn-elit ">- Сохранить -</button>
+                    </div>
+                    {{ form_end(form) }}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

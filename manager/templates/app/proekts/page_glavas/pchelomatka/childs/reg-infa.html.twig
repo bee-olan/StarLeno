@@ -1,0 +1,100 @@
+{% extends 'probase.html.twig' %}
+
+{% block title %}ПчелоМатка{% endblock %}
+
+
+{% block menupro %}
+    {{ include('app/proekts/_tabs.html.twig') }}
+    {{ include('app/proekts/page_glavas/pchelomatka/childs/_tabs.html.twig') }}
+{% endblock %}
+
+{% block kroxii %}
+    <a href="{{ path('app.proekts.page_glavas.pchelomatka.childs') }}"> Выбор инфы..</a>
+    <a href="{{ path('app.proekts.page_glavas.pchelomatka.childs.show') }}">Инфа: перед объявлением.</a>
+    <span class="aktiv ">Инфа:  объявление  дочек.</span>
+    <a href="{{ path('app.proekts.page_glavas.pchelomatka.childs.spisok-instr') }}">Инфа: после объявления.</a>
+
+
+{% endblock %}
+
+{% block bodyy %}
+
+
+    <div class=" pa-to-2  ">
+
+        <div class=" ma-bo-2 zagol-pchelo-child-44 ">
+            Инфа: <span class="col-beloe">объявление </span> Дочь - Пчело
+        </div>
+
+        <ul class="mestoo__title ">
+
+            <li class="zagol-pchelo-child-44  zagol-pchelo-child-44--px32 ">
+                <div class="ma-bo-1">
+                    <span class="col-beloe">1) </span>
+                    Комментарий - можно не заполнять
+                </div>
+                <div class="ma-bo-1">
+                    <span class="col-beloe">2) </span>
+                    Сколько (кол-во) дочек  объявлять? Выбрать.
+                </div>
+                <div class="ma-bo-1">
+                    <span class="col-beloe">3) </span>
+                    Нумерация дочек  <span class="col-beloe">... ... </span>
+                   <p></p> <span class="col-beloe">Внимание! </span> <p></p>Без надобности
+                     - не менять
+                </div>
+                <div class="ma-bo-1">
+                    <span class="col-beloe">4) </span>
+                    Дата выхода - можно выбрать или набрать
+                </div>
+                <div class="ma-bo-1">
+                    <span class="col-beloe"> 5) </span>
+                     Трутневый фон <span class="col-beloe"> тф - </span> <p></p>
+                     без контроля или в <span class="col-beloe"> % </span>
+                </div>
+                <div class="ma-bo-3">
+                    <span class="col-beloe"> 6) </span>
+                    Приоритет  предложения дочек - выбрать
+                </div>
+                <div class="ma-bo-1">
+                    <span class="col-beloe"> ! ! ! </span>
+                    Не забыть -
+                    <span class="col-beloe"> Сохранить</span>
+                </div>
+            </li>
+
+            <li class="mestoo__title-item ">
+                <div class="foto-pchelo child-reg"></div>
+            </li>
+        </ul>
+        <h1 class="zagol-pchelo-child-44   zagol-pchelo-child-44--px32 ma-to-2 ma-bo-2 ">
+            <span class="col-beloe">P.S. </span>
+               Как попасть на страничку объявления Дочь - Пчело можно посмотреть
+            <a class="btnn btnn-filtr"
+               href="{{ path('app.proekts.page_glavas.pchelomatka.childs.show') }}">
+                Инфа:  <span class="col-kras">перед </span>  объявлением дочек
+            </a>
+        </h1>
+
+        <h1 class="zagol-pchelo-child-44   ma-to-2 ma-bo-2 ">
+            Результат после <span class="col-beloe">объявления </span> Дочь - Пчело
+        </h1>
+
+        <div class="foto-pchelo child-reg-1"></div>
+        <h1 class="zagol-pchelo-child-44   ma-to-2 ma-bo-2 ">
+            Результат после <span class="col-beloe">добавления </span>  Дочь - Пчело
+        </h1>
+
+        <div class="foto-pchelo child-reg-2"></div>
+
+        <h1 class="zagol-pchelo-child-44  zagol-pchelo-child-44--px32  ma-to-3 ma-bo-2 ">
+            <span class="col-beloe">P.S. </span>
+            Разбор всех возможных переходов смотреть на
+
+            <a class="btnn btnn-filtr"
+               href="{{ path('app.proekts.page_glavas.pchelomatka.childs.spisok-instr') }}">
+                Инфа: <span class="col-kras">После</span> объявления
+            </a>
+        </h1>
+    </div>
+{% endblock %}

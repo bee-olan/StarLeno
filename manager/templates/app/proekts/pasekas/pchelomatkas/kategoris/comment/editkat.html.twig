@@ -1,0 +1,30 @@
+{% extends 'probase.html.twig' %}
+
+{% block title %}Редактировать{% endblock %}
+
+
+{% block menupro %}
+    {{ include('app/proekts/_tabs.html.twig') }}
+    {{ include('app/proekts/page_glavas/brendmatka/_tabs.html.twig') }}
+{% endblock %}
+
+{% block bodyy %}
+
+    <h1 class="mt-0 mb-3 font-xl">
+        {{ kategoria.name }}
+    </h1>
+
+    <div class="card">
+        <div class="card-body">
+
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <div>
+                <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+            </div>
+            {{ form_end(form) }}
+
+        </div>
+    </div>
+
+{% endblock %}

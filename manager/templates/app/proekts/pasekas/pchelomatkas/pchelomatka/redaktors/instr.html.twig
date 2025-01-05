@@ -1,0 +1,148 @@
+{% extends 'probase.html.twig' %}
+
+{% block title %}ПчелоМатка{% endblock %}
+
+
+{% block menupro %}
+    {{ include('app/proekts/_tabs.html.twig') }}
+    {{ include('app/proekts/page_glavas/pchelomatka/_tabs.html.twig') }}
+{% endblock %}
+
+ {% block kroxii %}
+     <a href="{{ path('app.proekts.page_glavas.pchelomatka.spisok-instr') }}">Инфа: после регистрации.</a>
+     <span class="aktiv ">Инфа: Все переходы</span>
+     {#     <a href="{{ path('app.proekts.pasekas.pchelomatkas.pchelomatka.redaktors.instr') }}">Инфа: Все переходы</a>#}
+     <a href="{{ path('app.proekts.pasekas.pchelomatkas.spisoks') }}">Список Пчело-Маток</a>
+
+ {% endblock %}
+
+{% block bodyy %}
+    <div class=" pa-to-2  ">
+
+        <div class=" ma-bo-2 zagol-teni-44 col-bel-text">
+            Инфа: Все переходы.
+            <p> Работа <span class="col-kras">с конкретной </span> маткой. &nbsp;</p>
+        </div>
+    </div>
+    <div class="proekts-plr  ">
+
+        <ul class="mestoo__title">
+
+            <li class="zagol-teni-44  zagol-teni-44--px32 col-bel-text ">
+                Переходы - <span class="col-kras">не все </span>
+                <p> Пояснения на <span class="col-kras">3)</span></p>
+            </li>
+            <li class="mestoo__title-item ">
+                <div class="foto-pchelo pchel-redakt-0"></div>
+            </li>
+        </ul>
+
+
+        <ul class="mestoo__title">
+            <li class="zagol-teni-44  zagol-teni-44--px32 col-bel-text ">
+                <span class="col-kras">1)</span>
+                Комментарий (редак-вать)
+            </li>
+
+            <li class="mestoo__title-item ">
+                <div class="foto-pchelo pchel-redakt-1"></div>
+            </li>
+        </ul>
+
+        <ul class="mestoo__title">
+            <li class="zagol-teni-44  zagol-teni-44--px32 col-bel-text ">
+                <span class="col-kras">2)</span> Изменить статус
+            </li>
+
+            <li class="mestoo__title-item ">
+                <div class="foto-pchelo pchel-redakt-2"></div>
+            </li>
+        </ul>
+        <div class="ma-to-2">
+            <ul class="mestoo__title">
+                <li class="zagol-teni-44  zagol-teni-44--px32 col-bel-text ">
+                    <span class="col-kras">3)</span> Если объявленных сезон - нет,
+                    жмём на кнопку: <p>Добавить 3-и сезона</p>
+                </li>
+
+                <li class="mestoo__title-item ">
+                    <div class="foto-pchelo pchel-redakt-3"></div>
+                </li>
+            </ul>
+
+            <ul class="mestoo__title">
+                <li class="zagol-teni-44  zagol-teni-44--px32 col-bel-text ">
+                    После добавления сезонов -
+                    появляются дополнительные переходы
+                </li>
+
+                <li class="mestoo__title-item ">
+                    <div class="foto-pchelo pchel-redakt-4"></div>
+                </li>
+            </ul>
+        </div>
+        <ul class="mestoo__title">
+            <li class="zagol-teni-44  zagol-teni-44--px32 col-bel-text ">
+                <span class="col-kras">4)</span> Объявить сезон - просто
+            </li>
+
+            <li class="mestoo__title-item ">
+                <div class="foto-pchelo pchel-redakt-5"></div>
+            </li>
+        </ul>
+
+        <ul class="mestoo__title">
+            <li class="zagol-teni-44  zagol-teni-44--px32 col-bel-text ">
+                Объявленные сезоны появляются <p>на страничке</p>
+            </li>
+
+            <li class="mestoo__title-item ">
+                <div class="foto-pchelo pchel-redakt-6"></div>
+            </li>
+        </ul>
+
+        <ul class="mestoo__title">
+            <li class="zagol-teni-44  zagol-teni-44--px32 col-bel-text ">
+                 <span class="col-kras">5)</span> Добавить сезон -
+                <p><span class="col-kras"> не  </span>значит его объявить</p>
+            </li>
+
+            <li class="mestoo__title-item ">
+                <div class="foto-pchelo pchel-redakt-7"></div>
+            </li>
+        </ul>
+
+        <ul class="mestoo__title">
+            <li class="zagol-teni-44  zagol-teni-44--px32 col-bel-text ">
+                 Если матка в  <span class="col-kras">Архиве</span>
+               программно блокируется объявление и добавление сезонов
+            </li>
+
+            <li class="mestoo__title-item ">
+                <div class="foto-pchelo pchel-redakt-8"></div>
+            </li>
+        </ul>
+
+        <ul class="mestoo__title">
+            <li class="zagol-teni-44  zagol-teni-44--px32 col-bel-text ">
+                <span class="col-kras">6)</span> На страничке добавления <p>Дочь - Пчело</p>
+                <span class="col-kras"> главное  </span>правильно выбрать сезон
+            </li>
+
+            <li class="mestoo__title-item ">
+                <div class="foto-pchelo pchel-redakt-9"></div>
+            </li>
+        </ul>
+        <h1 class="zagol-teni-44  zagol-teni-44--px32 col-bel-text ma-to-2 ma-bo-2 ">
+            <span class="col-kras">P.S. </span>
+           Переходы на странички с пояснениями по регистрации  будут видны
+            при работе с Дочь - Пчело
+
+
+            <a class="btnn btnn-filtr"
+               href="{{ path('app.proekts.page_glavas.pchelomatka.spisok-instr') }}">
+                Инфа: <span class="col-kras">Дочь</span> - Пчело
+            </a>
+        </h1>
+    </div>
+{% endblock %}

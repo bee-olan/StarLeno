@@ -1,0 +1,60 @@
+{% extends 'probase.html.twig' %}
+
+{% block title %}Привер Проект{% endblock %}
+
+
+
+{% block menupro %}
+ {{ include('app/proekts/_tabs.html.twig') }}
+{% endblock %}
+
+{% block kroxii %}
+    <a href="{{ path('proekt') }}">Главная</a>
+    <span class="aktiv ">С чего начать</span>
+{% endblock %}
+
+{% block bodyy %}
+    <div class="proekts pro-mesto">
+
+        <div class="wstavka nav-teni">
+            С чего начать
+        </div>
+
+       
+
+            <h1 class="zagol-teni zagol-teni--em4 ma-bo-2">Элит - Матка. Не готова к просмотру</h1>
+       
+
+        {# <ul class="mestoo__title">
+            <li class="mestoo__title-item mestoo__nomer-red">
+                <a href="{{ path('app.proekts.page_glavas.uchastieGl') }}">1. basepro  ??? Где используется</a>
+            </li>
+            <li class="mestoo__title-item mestoo__nomer">
+                <a href="{{ path('app.proekts.page_glavas.uchastieGl') }}">Стать участником проекта </a>
+            </li>
+
+            <li class="mestoo__title-item ">
+                <a href="{{ path('app.proekts.page_glavas.uchastieGl') }}">
+                    <div class="foto glav-uch"></div>
+                </a>
+            </li>
+        </ul> #}
+
+
+
+{#        <ul class="mestoo__title">#}
+{#            <li class="mestoo__title-item mestoo__nomer-red">#}
+{#                <a href="{{ path('app.proekts.personaa.diapazon') }}">2. </a>#}
+{#            </li>#}
+{#            <li class="mestoo__title-item mestoo__nomer">#}
+{#                <a href="{{ path('app.proekts.personaa.diapazon') }}">----- </a>#}
+{#            </li>#}
+
+{#            <li class="mestoo__title-item ">......#}
+{#                <a href="{{ path('app.proekts.personaa.diapazon') }}">#}
+{#                    <div class="foto persona-f"></div>#}
+{#                </a>#}
+{#            </li>#}
+{#        </ul>#}
+    </div>
+{% endblock %}

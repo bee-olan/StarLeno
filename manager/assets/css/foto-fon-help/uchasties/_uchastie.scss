@@ -1,0 +1,118 @@
+.foto {
+  display: block; // блочная
+  margin: 2rem auto 1.5rem;
+  position: relative; //чтобы бордер не исчезал  под картинкой
+
+  border: 2px solid $border-foto;
+  box-shadow: 0 7px 20px rgba(0, 0, 0, .25);
+  border-radius: 2%;
+}
+
+.glav-uch {
+  background-image: url('../../../../assets/images/foto-for-help/glav-uch.png');
+  width: 881px;
+  height: 445px;
+  
+}
+
+.pers-d {
+  background-image: url('../../../../assets/images/foto-for-help/pers-d.png');
+  width: 544px;
+  height: 275px;
+}
+
+.pers-n {
+  background-image: url('../../../../assets/images/foto-for-help/pers-n.png');
+  width: 616px;
+  height: 330px;
+}
+.pers-s {
+  background-image: url('../../../../assets/images/foto-for-help/pers-s.png');
+  width: 692px;
+  height: 314px;
+}
+.pers-es {
+  background-image: url('../../../../assets/images/foto-for-help/pers-es.png');
+  width: 622px;
+  height: 362px;
+}
+
+
+.mes-ok {
+  background-image: url('../../../../assets/images/foto-for-help/mes-ok.png');
+  width: 620px;
+  height: 321px;
+}
+
+.mes-ob {
+  background-image: url('../../../../assets/images/foto-for-help/mes-ob.png');
+  width: 641px;
+  height: 321px;
+}
+
+.mes-za {
+  background-image: url('../../../../assets/images/foto-for-help/mes-za.png');
+  width: 699px;
+  height: 283px;
+}
+
+.mes-ra {
+  background-image: url('../../../../assets/images/foto-for-help/mes-ra.png');
+  width: 681px;
+  height: 347px;
+}
+
+.mes-me {
+  background-image: url('../../../../assets/images/foto-for-help/mes-me.png');
+  width: 627px;
+  height: 336px;
+}
+
+.mes-es {
+  background-image: url('../../../../assets/images/foto-for-help/mes-es.png');
+  width: 616px;
+  height: 345px;
+}
+
+.uch-1 {
+  background-image: url('../../../../assets/images/foto-for-help/uch-1.png');
+  width: 618px;
+  height: 350px;
+}
+
+.uch-2 {
+  background-image: url('../../../../assets/images/foto-for-help/uch-2.png');
+  width: 616px;
+  height: 316px;
+}
+
+.uch-3 {
+  background-image: url('../../../../assets/images/foto-for-help/uch-3.png');
+  width: 605px;
+  height: 321px;
+}
+
+.uch-4 {
+  background-image: url('../../../../assets/images/foto-for-help/uch-4.png');
+  width: 659px;
+  height: 317px;
+}
+
+.uch-5 {
+  background-image: url('../../../../assets/images/foto-for-help/uch-5.png');
+  width: 838px;
+  height: 258px;
+}
+
+.uchastie-f {
+  background-image: url('../../../../assets/images/foto-for-help/uchastie-f.png');
+  width: 769px;
+  height: 268px;
+}
+
+
+.st-uchastie-f {
+  background-image: url('../../../../assets/images/foto-for-help/st-uch-f.png');
+  width: 797px;
+  height: 306px;
+}

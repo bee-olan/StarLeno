@@ -1,0 +1,40 @@
+{% extends 'probase.html.twig' %}
+
+{% block title %}ПчелоМатка{% endblock %}
+
+
+{% block menupro %}
+    {{ include('app/proekts/_tabs.html.twig') }}
+    {{ include('app/proekts/page_glavas/pchelomatka/childs/_tabs.html.twig') }}
+{% endblock %}
+
+{% block kroxii %}
+    <a href="{{ path('app.proekts.page_glavas.pchelomatka.childs') }}"> Выбор инфы..</a>
+    <a href="{{ path('app.proekts.page_glavas.pchelomatka.childs.show') }}">Инфа: перед объявлением.</a>
+    <a href="{{ path('app.proekts.page_glavas.pchelomatka.childs.reg-infa') }}">Инфа: объявление дочек.</a>
+    <span class="aktiv ">Инфа: после объявления.</span>
+{% endblock %}
+
+{% block bodyy %}
+    <div class=" pa-to-2  ">
+
+        <div class=" ma-bo-2 zagol-pchelo-child-44 ">
+            Инфа: <span class="col-beloe">после </span> объявления дочек. &nbsp;
+        </div>
+
+            <h1 class="zagol-pchelo-child-44   ma-to-2 ma-bo-2 ">
+                Работа со <span class="col-beloe">списком </span> Дочь - Пчело через
+                <span class="col-beloe">фильтры </span> (слева)
+            </h1>
+
+            <h1 class="zagol-pchelo-child-44     ">
+                <span class="col-beloe"> Попробуйте </span> сделать выбор и всё получится
+                <a class="btnn btnn-filtr"
+                   href="{{ path('app.proekts.pasekas.childpchelos') }}"> Список
+                </a>
+            </h1>
+
+            <div class="foto-pchelo child-spisok-filtr"></div>
+
+    </div>
+{% endblock %}

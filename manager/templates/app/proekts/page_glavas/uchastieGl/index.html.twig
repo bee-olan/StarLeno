@@ -1,0 +1,78 @@
+{% extends 'probase.html.twig' %}
+
+{% block title %}Участие{% endblock %}
+
+{% block menupro %}
+    {{ include('app/proekts/_tabs.html.twig') }}
+    {{ include('app/proekts/page_glavas/uchastieGl/_tabs.html.twig') }}
+{% endblock %}
+
+{% block kroxii %}
+    <a href="{{ path('app.proekts.page_glavas.uchastieGl') }}">Инфа: Стать участником</a>
+    <a href="{{ path('app.proekts.personaa.infa.inform') }}">Инфа:  ПерсонНомер</a>
+    <a href="{{ path('app.proekts.mestos.inform') }}">Инфа: Место рас-ния</a>
+    {# <a href="{{ path('app.proekts.pasekas.uchasties.groupas') }}">Группы</a>
+    <a href="{{ path('app.proekts.pasekas.uchasties.spisok') }}">Список Участников</a> #}
+    <span class="aktiv">Инфа в картинках для раздела: Участие </span>
+{% endblock %}
+
+{% block bodyy %}
+    <div class="proekts pro-mesto">
+
+        <div class="wstavka nav-teni">
+            Участие : в любой последовательности - выполнить
+        </div>
+
+        <ul class="mestoo__title">
+
+            <li class="mestoo__title-item mestoo__nomer-red">
+                <a href="{{ path('app.proekts.pasekas.uchasties.uchastiee') }}">1. </a>
+            </li>
+            <li class="mestoo__title-item mestoo__nomer">
+                <a href="{{ path('app.proekts.pasekas.uchasties.uchastiee') }}">Последовательно заполнить пункты 1 - 3  </a>
+            </li>
+
+            <li class="mestoo__title-item ">
+                <a href="{{ path('app.proekts.pasekas.uchasties.uchastiee') }}">
+                    <div class="foto st-uchastie-f"></div>
+                </a>
+            </li>
+        </ul>
+        <div   >
+            <snap class="mestoo__title-item mestoo__nomer-red">Номер места и  персональный номер</snap>
+            <snap >можно выбрать перейдя на странички</snap>
+
+
+        </div>
+
+        <ul class="mestoo__title">
+
+            <li class="mestoo__title-item mestoo__nomer-red">
+                <a href="{{ path('app.proekts.mestos.okrugs') }}">2. </a>
+            </li>
+            <li class="mestoo__title-item mestoo__nomer">
+                <a href="{{ path('app.proekts.mestos.okrugs') }}">Выбрать номер места </a>
+            </li>
+
+            <li class="mestoo__title-item ">
+                <a href="{{ path('app.proekts.mestos.okrugs') }}">
+                    <div class="foto mesto-f"></div>
+                </a>
+            </li>
+        </ul>
+        <ul class="mestoo__title">
+            <li class="mestoo__title-item mestoo__nomer-red">
+                <a href="{{ path('app.proekts.personaa.nomer.diapazon') }}">3. </a>
+            </li>
+            <li class="mestoo__title-item mestoo__nomer">
+                <a href="{{ path('app.proekts.personaa.nomer.diapazon') }}">Выбрать персональный номер </a>
+            </li>
+
+            <li class="mestoo__title-item ">
+                <a href="{{ path('app.proekts.personaa.nomer.diapazon') }}">
+                    <div class="foto persona-f"></div>
+                </a>
+            </li>
+        </ul>
+    </div>
+{% endblock %}

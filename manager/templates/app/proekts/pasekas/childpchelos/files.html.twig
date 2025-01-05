@@ -1,0 +1,54 @@
+{% extends 'probase.html.twig' %}
+
+{% block title %}{{ childpchelo.name }}{% endblock %}
+
+{% block menupro %}
+    {{ include('app/proekts/_tabs.html.twig') }}
+    {{ include('app/proekts/page_glavas/pchelomatka/childs/_tabs.html.twig') }}
+{% endblock %}
+
+{% block bodyy %}
+
+    {#    <h1 class="mt-0 mb-3 font-xl">#}
+    {#        {% if childpchelo.parent %}#}
+    {#            <a href="{{ path('work.projects.tasks.show', {'id': task.parent.id}) }}">{{ task.parent.name }}</a> /#}
+    {#        {% endif %}#}
+    {#        {{ childpchelo.name }}#}
+    {#    </h1>#}
+    <div class="  proekts proekts--pchelomat ">
+
+        <div class="inklud inklud--pchelomat">
+
+            <div class="pchelo-title pchelo-teni ">
+{#                {% if childpchelo.parent %}#}
+{#                    <a href="{{ path('app.proekts.pasekas.childpchelos.show', {'id': childpchelo.parent.id}) }}"#}
+{#                       style="color: #155799;; "> {{ childpchelo.parent.name }} </a>#}
+{#                {% else %}#}
+                    <span class="strongo--elit "> Дочь - Пчело </span> {{ pchelomatka.name }}
+
+{#                {% endif %}#}
+
+            </div>
+        </div>
+
+        <div class="proekts-plr  ">
+{#            <div class=" ">#}
+{#                <span>Заполняем </span>#}
+{#                <span class=" pchelo-titul--col "> 6-ть </span>#}
+{#                <span class="  "> позиций:</span>#}
+{#            </div>#}
+
+            <div class="elit-form__header  ">
+                <div class="elit-form ">
+                    {{ form_start(form) }}
+                    {{ form_widget(form) }}
+                    <div>
+                        <button type="submit" class="btnn-elit">Загрузить</button>
+                    </div>
+                    {{ form_end(form) }}
+
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

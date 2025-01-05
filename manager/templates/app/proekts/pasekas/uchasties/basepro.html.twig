@@ -1,0 +1,72 @@
+{% extends 'probase.html.twig' %}
+
+{% block title %}Привер Проект{% endblock %}
+
+
+    {% block menupro %}
+        {{ include('app/proekts/_tabs.html.twig') }}
+        {{ include('app/proekts/page_glavas/uchastieGl/_tabs.html.twig') }}
+    {% endblock %}
+
+{% block kroxii %}
+    <a href="{{ path('app.proekts.personaa.infa.inform') }}">Инфа:  ПерсонНомер</a>
+    <a href="{{ path('app.proekts.mestos.infa.inform') }}">Инфа: НомерМеста</a>
+    <a href="{{ path('app.proekts.pasekas.uchasties.uchastiee.infa.inform') }}">Инфа: Стать участником</a>
+    <span class="aktiv">Инфа  для раздела: Участие </span>
+{% endblock %}
+
+{% block bodyy %}
+
+
+    <div class="ma-to-4">
+
+        <h2 class="zagol-teni-44 ma-bo-2">В любой последовательности :</h2>
+
+
+       <ul class="mestoo__title">
+           
+            <li class="zagol-teni-44  zagol-teni-44--px32">
+                Выбрать <span class="col-kras">ПерсонНомер </span> 
+            </li>
+
+            <li class="mestoo__title-item ">
+                <a href="{{ path('app.proekts.personaa.nomer.diapazon') }}">
+                    <div class="foto pers-d"></div>
+                </a>
+            </li>
+       </ul>
+       <ul class="mestoo__title">
+           
+            <li class="zagol-teni-44  zagol-teni-44--px32">
+                Выбрать <span class="col-kras">НомерМеста </span> 
+            </li>
+
+            <li class="mestoo__title-item ">
+                <a href="{{ path('app.proekts.mestos.okrugs') }}">
+                    <div class="foto mes-ok"></div>
+                </a>
+            </li>
+        </ul>
+        <ul class="mestoo__title">
+           
+            <li class="zagol-teni-44  zagol-teni-44--px32">
+                На этой страничке заполнить 
+                <p>
+                    <span class="col-kras">Допол. данные </span>
+                </p> 
+            </li>
+
+            <li class="mestoo__title-item ">
+                <a href="{{ path('app.proekts.pasekas.uchasties.uchastiee') }}">
+                    <div class="foto st-uchastie-f"></div>
+                </a>
+            </li>
+        </ul>
+
+    </div>
+
+    <h1 class="zagol-teni-44  zagol-teni-44--px32  ma-to-2">
+      <p> <span class="col-kras">P.S. </span> 
+      Перейти на нужную страничку можно из среднего меню </p>или нажав на картинку. </h1>
+
+{% endblock %}

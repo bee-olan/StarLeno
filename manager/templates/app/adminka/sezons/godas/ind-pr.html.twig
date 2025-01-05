@@ -1,0 +1,67 @@
+{% extends  'sezbase.html.twig' %}
+
+{% block title %}Сезоны{% endblock %}
+
+   {% block menupro %}
+       {{ include('app/proekts/_tabs.html.twig') }}
+       {{ include('app/proekts/page_glavas/pasekas/_tabs.html.twig') }}
+   {% endblock %}
+
+ {% block kroxii %}
+     <a href="{{ path('proekt') }}">Главная</a>
+     <span class="aktiv ">Выбор сезона!</span>
+ {% endblock %}
+
+{% block bodyy %}
+
+    <div class=" proekts proekts--paseka">
+
+        <div class="inklud inklud--paseka ">
+            <div class="pchelo-title  pchelo-teni ">
+                Выбор Сезона
+            </div>
+        </div>
+
+        <div class="proekts-plr  ">
+
+
+            <table class="tabl  tab-hover-godina">
+                <thead  >
+                <tr >
+                    <th class="tab-bold"> Год</th>
+                    <th class="tab-bold" > Сезон</th>
+                    <th class="tab-bold" >Кол-во тестеров</th>
+                    <th class="tab-bold" >Тест - Маток</th>
+<th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% set token = csrf_token('delete') %}
+                {% for goda in godass %}
+                    <tr>
+                        <td>{{ goda.god }}
+{#                                                                <a href="{{ path('adminka.sezons.godas.create') }}">#}
+{#                                                                    {{ goda.god }}#}
+{#                                                                </a>#}
+                        </td>
+                        <td>
+{#                            <a href="{{ path('adminka.sezons.godas.zajavas', {'id': goda.id}) }}">#}
+{#                                {{ goda.sezon }}#}
+{#                            </a>#}
+                        </td>
+{#                        <td> {{ goda.uchasgoda_count }} </td>#}
+                        <td> ----------</td>
+
+                        <th></th>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+
+        </div>
+
+    </div>
+{#        </div>#}
+
+{% endblock %}
