@@ -53,8 +53,8 @@ jobs:
             # -   name: Test
             #     run: make manager-test
 
-    #         -   name: Down
-    #             run: make down
+            -   name: Down
+                run: make down
 
     #         -   name: Build
     #             run: make build-production
