@@ -29,12 +29,10 @@ manager-clear:
 
 manager-composer-install:
 	docker compose run --rm manager-php-cli composer install
-	# docker-compose run --rm manager-php-cli composer install
+	
 manager-assets-install:
 	docker compose run --rm manager-node yarn install
 	docker compose run --rm manager-node npm rebuild node-sass
-	# docker-compose run --rm manager-node yarn install
-	# docker-compose run --rm manager-node npm rebuild node-sass
 
 manager-oauth-keys:
 	docker compose run --rm manager-php-cli mkdir -p var/oauth
@@ -86,8 +84,8 @@ push-production:
 	docker push ${REGISTRY_ADDRESS}/centrifugo:${IMAGE_TAG}
 
 deploy-production:
-	# ssh -o StrictHostKeyChecking=no ${PRODUCTION_HOST}@deploy -p ${PRODUCTION_PORT} 'rm -rf docker-compose.yml .env'
-	# scp -o StrictHostKeyChecking=no -P ${PRODUCTION_PORT} docker-compose-production.yml ${PRODUCTION_HOST}@deploy:docker-compose.yml
+	ssh -o StrictHostKeyChecking=no ${PRODUCTION_HOST}@deploy -p ${PRODUCTION_PORT} 'rm -rf docker-compose.yml .env'
+	scp -o StrictHostKeyChecking=no -P ${PRODUCTION_PORT} docker-compose-production.yml ${PRODUCTION_HOST}@deploy:docker-compose.yml
 	ssh -o StrictHostKeyChecking=no ${PRODUCTION_HOST}@deploy -p ${PRODUCTION_PORT} 'echo "REGISTRY_ADDRESS=${REGISTRY_ADDRESS}" >> .env'
 	ssh -o StrictHostKeyChecking=no ${PRODUCTION_HOST}@deploy -p ${PRODUCTION_PORT} 'echo "IMAGE_TAG=${IMAGE_TAG}" >> .env'
 	ssh -o StrictHostKeyChecking=no ${PRODUCTION_HOST}@deploy -p ${PRODUCTION_PORT} 'echo "MANAGER_APP_SECRET=${MANAGER_APP_SECRET}" >> .env'
