@@ -77,8 +77,8 @@ jobs:
                     key: ${{ secrets.PRODUCTION_SSH_KEY }}
                     known_hosts: ${{ secrets.PRODUCTION_HOST }}
 
-    #         -   name: Set registry env
-    #             run:  echo "REGISTRY_ADDRESS=${{ env.REGISTRY_HOST }}/${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
+            -   name: Set registry env
+                run:  echo "REGISTRY_ADDRESS=${{ env.REGISTRY_HOST }}/${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
 
     #         -   name: Deploy
     #             run: make deploy-production
