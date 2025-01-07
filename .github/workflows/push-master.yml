@@ -80,21 +80,21 @@ jobs:
             -   name: Set registry env
                 run:  echo "REGISTRY_ADDRESS=${{ env.REGISTRY_HOST }}/${GITHUB_REPOSITORY,,}" >> $GITHUB_ENV
 
-    #         -   name: Deploy
-    #             run: make deploy-production
-    #             env:
-    #                 BUILD_NUMBER: ${{ github.run_number }}
-    #                 PRODUCTION_HOST: ${{ secrets.PRODUCTION_HOST }}
-    #                 PRODUCTION_PORT: ${{ secrets.PRODUCTION_PORT }}
-    # #                 MANAGER_APP_SECRET: ${{ secrets.MANAGER_APP_SECRET }}
-    #                 MANAGER_DB_PASSWORD: ${{ secrets.MANAGER_DB_PASSWORD }}
-    #                 MANAGER_REDIS_PASSWORD: ${{ secrets.MANAGER_REDIS_PASSWORD }}
-    #                 MANAGER_MAILER_URL: ${{ secrets.MANAGER_MAILER_URL }}
-    #                 MANAGER_OAUTH_FACEBOOK_SECRET: ${{ secrets.MANAGER_OAUTH_FACEBOOK_SECRET }}
-    #                 STORAGE_BASE_URL: ${{ secrets.STORAGE_BASE_URL }}
-    #                 STORAGE_FTP_HOST: ${{ secrets.STORAGE_FTP_HOST }}
-    #                 STORAGE_FTP_USERNAME: ${{ secrets.STORAGE_FTP_USERNAME }}
-    #                 STORAGE_FTP_PASSWORD: ${{ secrets.STORAGE_FTP_PASSWORD }}
-    #                 CENTRIFUGO_WS_HOST: ${{ secrets.CENTRIFUGO_WS_HOST }}
-    #                 CENTRIFUGO_API_KEY: ${{ secrets.CENTRIFUGO_API_KEY }}
-    #                 CENTRIFUGO_SECRET: ${{ secrets.CENTRIFUGO_SECRET }}
+            -   name: Deploy
+                run: make deploy-production
+                env:
+                    BUILD_NUMBER: ${{ github.run_number }}
+                    PRODUCTION_HOST: ${{ secrets.PRODUCTION_HOST }}
+                    PRODUCTION_PORT: ${{ secrets.PRODUCTION_PORT }}
+    #                 MANAGER_APP_SECRET: ${{ secrets.MANAGER_APP_SECRET }}
+                    MANAGER_DB_PASSWORD: ${{ secrets.MANAGER_DB_PASSWORD }}
+                    MANAGER_REDIS_PASSWORD: ${{ secrets.MANAGER_REDIS_PASSWORD }}
+                    MANAGER_MAILER_URL: ${{ secrets.MANAGER_MAILER_URL }}
+                    MANAGER_OAUTH_FACEBOOK_SECRET: ${{ secrets.MANAGER_OAUTH_FACEBOOK_SECRET }}
+                    STORAGE_BASE_URL: ${{ secrets.STORAGE_BASE_URL }}
+                    STORAGE_FTP_HOST: ${{ secrets.STORAGE_FTP_HOST }}
+                    STORAGE_FTP_USERNAME: ${{ secrets.STORAGE_FTP_USERNAME }}
+                    STORAGE_FTP_PASSWORD: ${{ secrets.STORAGE_FTP_PASSWORD }}
+                    CENTRIFUGO_WS_HOST: ${{ secrets.CENTRIFUGO_WS_HOST }}
+                    CENTRIFUGO_API_KEY: ${{ secrets.CENTRIFUGO_API_KEY }}
+                    CENTRIFUGO_SECRET: ${{ secrets.CENTRIFUGO_SECRET }}
