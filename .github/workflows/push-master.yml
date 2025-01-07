@@ -51,7 +51,7 @@ jobs:
                 run: sudo make init
 
             # -   name: Test
-            #     run: make manager-test-unit
+            #     run: make manager-test
 
             -   name: Down
                 run: make down
