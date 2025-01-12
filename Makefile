@@ -83,8 +83,8 @@ push-production:
 	docker push ${REGISTRY_ADDRESS}/manager-redis:${IMAGE_TAG}
 	docker push ${REGISTRY_ADDRESS}/centrifugo:${IMAGE_TAG}
 
-#deploy-production:
-#	ssh -o StrictHostKeyChecking=no ${PRODUCTION_HOST} -p ${PRODUCTION_PORT} 'rm -rf docker-compose.yml .env'
+deploy-production:
+	ssh -o StrictHostKeyChecking=no ${PRODUCTION_HOST} -p ${PRODUCTION_PORT} 'rm -rf docker-compose.yml'
 #	scp -o StrictHostKeyChecking=no -P ${PRODUCTION_PORT} docker-compose-production.yml ${PRODUCTION_HOST}:docker-compose.yml
 #	ssh -o StrictHostKeyChecking=no ${PRODUCTION_HOST} -p ${PRODUCTION_PORT} 'echo "REGISTRY_ADDRESS=${REGISTRY_ADDRESS}" >> .env'
 #	ssh -o StrictHostKeyChecking=no ${PRODUCTION_HOST} -p ${PRODUCTION_PORT} 'echo "IMAGE_TAG=${IMAGE_TAG}" >> .env'
@@ -104,34 +104,3 @@ push-production:
 #	ssh -o StrictHostKeyChecking=no ${PRODUCTION_HOST} -p ${PRODUCTION_PORT} 'docker compose up --build -d'
 #	ssh -o StrictHostKeyChecking=no ${PRODUCTION_HOST} -p ${PRODUCTION_PORT} 'until docker compose exec -T manager-postgres pg_isready --timeout=0 --dbname=app ; do sleep 1 ; done'
 #	ssh -o StrictHostKeyChecking=no ${PRODUCTION_HOST} -p ${PRODUCTION_PORT} 'docker compose run --rm manager-php-cli php bin/console doctrine:migrations:migrate --no-interaction'
-
-SSH_COMMAND = ssh -o StrictHostKeyChecking=no ${PRODUCTION_HOST} -p ${PRODUCTION_PORT}
-SCP_COMMAND = scp -o StrictHostKeyChecking=no -P ${PRODUCTION_PORT}
-
-deploy-production:
-	${SSH_COMMAND} 'rm -rf docker-compose.yml .env'
-	${SCP_COMMAND} docker-compose-production.yml ${PRODUCTION_HOST}:docker-compose.yml
-
-	# Создание .env файла
-#	${SSH_COMMAND} 'cat > .env << EOL\
-#	REGISTRY_ADDRESS=${REGISTRY_ADDRESS}\n\
-#	IMAGE_TAG=${IMAGE_TAG}\n\
-#	MANAGER_APP_SECRET=${MANAGER_APP_SECRET}\n\
-#	MANAGER_DB_PASSWORD=${MANAGER_DB_PASSWORD}\n\
-#	MANAGER_REDIS_PASSWORD=${MANAGER_REDIS_PASSWORD}\n\
-#	MANAGER_MAILER_URL=${MANAGER_MAILER_URL}\n\
-#	MANAGER_OAUTH_FACEBOOK_SECRET=${MANAGER_OAUTH_FACEBOOK_SECRET}\n\
-#	STORAGE_BASE_URL=${STORAGE_BASE_URL}\n\
-#	STORAGE_FTP_HOST=${STORAGE_FTP_HOST}\n\
-#	STORAGE_FTP_USERNAME=${STORAGE_FTP_USERNAME}\n\
-#	STORAGE_FTP_PASSWORD=${STORAGE_FTP_PASSWORD}\n\
-#	CENTRIFUGO_WS_HOST=${CENTRIFUGO_WS_HOST}\n\
-#	CENTRIFUGO_API_KEY=${CENTRIFUGO_API_KEY}\n\
-#	CENTRIFUGO_SECRET=${CENTRIFUGO_SECRET}\n\
-#	EOL'
-
-	# Развертывание
-	${SSH_COMMAND} 'docker compose pull'
-	${SSH_COMMAND} 'docker compose up --build -d'
-	${SSH_COMMAND} 'until docker compose exec -T manager-postgres pg_isready --timeout=0 --dbname=app ; do sleep 1 ; done'
-	${SSH_COMMAND} 'docker compose run --rm manager-php-cli php bin/console doctrine:migrations:migrate --no-interaction'
