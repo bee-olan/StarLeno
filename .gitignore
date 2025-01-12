@@ -17,8 +17,6 @@ yarn-error.log
 /manager/.env.*.local
 /manager/config/secrets/prod/prod.decrypt.private.php
 /manager/public/bundles/
-/manager/var/
-/manager/vendor/
 
 # Frontend build
 /public/build/
