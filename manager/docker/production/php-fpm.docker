@@ -46,7 +46,7 @@ COPY --from=php-cli-builder /app ./
 COPY --from=node-builder /app/public/build ./public/build
 COPY ./ ./
 
-ENV APP_ENV prod
+# ENV APP_ENV prod
 
 RUN php bin/console assets:install
 
