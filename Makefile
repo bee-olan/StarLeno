@@ -84,6 +84,8 @@ push-production:
 	docker push ${REGISTRY_ADDRESS}/centrifugo:${IMAGE_TAG}
 
 deploy-production:
+	@echo "PRODUCTION_HOST: [${PRODUCTION_HOST}]"
+	@echo "PRODUCTION_PORT: [${PRODUCTION_PORT}]"
 	ssh -o StrictHostKeyChecking=no ${PRODUCTION_HOST} -p ${PRODUCTION_PORT} 'rm -rf docker-compose.yml'
 #	scp -o StrictHostKeyChecking=no -P ${PRODUCTION_PORT} docker-compose-production.yml ${PRODUCTION_HOST}:docker-compose.yml
 #	ssh -o StrictHostKeyChecking=no ${PRODUCTION_HOST} -p ${PRODUCTION_PORT} 'echo "REGISTRY_ADDRESS=${REGISTRY_ADDRESS}" >> .env'
