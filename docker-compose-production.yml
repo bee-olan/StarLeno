@@ -113,15 +113,6 @@ services:
         volumes:
             - manager-queue-redis:/data
 
-    storage:
-      build:
-        context: ./storage/docker/development
-        dockerfile: nginx.docker
-      volumes:
-        - ./storage:/app
-      ports:
-        - "8081:80"
-
     mailer:
       image: mailhog/mailhog
       ports:
