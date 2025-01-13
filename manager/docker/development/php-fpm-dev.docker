@@ -1,0 +1,41 @@
+FROM php:7.3-fpm
+
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    git \
+    unzip \
+    libzip-dev \
+    && docker-php-ext-install zip \
+    && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
+    && docker-php-ext-install pdo_pgsql
+
+# Установка Node.js и Yarn
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \
+    && curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+    && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
+    && apt-get update \
+    && apt-get install -y nodejs yarn
+
+# Установка Redis
+RUN pecl install -o -f redis \
+    && rm -rf /tmp/pear \
+    && docker-php-ext-enable redis
+
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/bin --filename=composer --quiet
+
+ENV COMPOSER_ALLOW_SUPERUSER 1
+
+WORKDIR /app
+
+COPY ./manager/composer.json ./manager/composer.lock ./
+RUN composer install --no-scripts --prefer-dist --optimize-autoloader
+
+# Копируем package.json и устанавливаем npm зависимости
+COPY ./manager/package.json ./manager/yarn.lock ./
+RUN yarn install
+
+# Копируем остальные файлы приложения
+COPY ./manager .
+
+# Компилируем фронтенд ассеты
+RUN yarn run build
