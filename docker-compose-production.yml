@@ -110,6 +110,28 @@ services:
         volumes:
             - manager-queue-redis:/data
 
+    storage:
+      build:
+        context: ./storage/docker/development
+        dockerfile: nginx.docker
+      volumes:
+        - ./storage:/app
+      ports:
+        - "8081:80"
+    storage-ftp:
+      image: stilliard/pure-ftpd
+      environment:
+        FTP_USER_NAME: app
+        FTP_USER_PASS: secret
+        FTP_USER_HOME: /app
+      volumes:
+        - ./storage/public:/app
+
+    mailer:
+      image: mailhog/mailhog
+      ports:
+        - "8082:8025"
+
     centrifugo:
         image: ${REGISTRY_ADDRESS}/centrifugo:${IMAGE_TAG}
         ulimits:
