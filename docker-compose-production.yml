@@ -7,6 +7,10 @@ services:
             - manager-php-fpm
         ports:
             - "80:80"
+            - "443:443"
+        volumes:
+          - /etc/letsencrypt/live/xn-----8kcjjc4c0av.xn--p1ai:/etc/nginx/ssl
+          - /etc/letsencrypt/archive/xn-----8kcjjc4c0av.xn--p1ai:/etc/nginx/ssl/archive
     manager-php-fpm:
         image: ${REGISTRY_ADDRESS}/manager-php-fpm:${IMAGE_TAG}
         restart: always
