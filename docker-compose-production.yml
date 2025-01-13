@@ -9,7 +9,7 @@ services:
             - "80:80"
             - "443:443"
         volumes:
-          - /etc/letsencrypt/live/xn-----8kcjjc4c0av.xn--p1ai:/etc/nginx/ssl
+          - /etc/letsencrypt:/etc/nginx/ssl
     manager-php-fpm:
         image: ${REGISTRY_ADDRESS}/manager-php-fpm:${IMAGE_TAG}
         restart: always
