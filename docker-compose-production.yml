@@ -35,7 +35,6 @@ services:
             - manager-redis
             - manager-queue-redis
             - mailer
-            - storage
             - centrifugo
     manager-php-cli:
         image: ${REGISTRY_ADDRESS}/manager-php-cli:${IMAGE_TAG}
@@ -60,7 +59,6 @@ services:
             - manager-postgres
             - manager-redis
             - manager-queue-redis
-            - storage
             - mailer
             - centrifugo
     manager-queue-worker:
@@ -86,7 +84,6 @@ services:
             - manager-postgres
             - manager-redis
             - manager-queue-redis
-            - storage
             - mailer
             - centrifugo
         command: sh -c "sleep 30 && php bin/console messenger:consume async -vv"
@@ -124,14 +121,6 @@ services:
         - ./storage:/app
       ports:
         - "8081:80"
-    storage-ftp:
-      image: stilliard/pure-ftpd
-      environment:
-        FTP_USER_NAME: app
-        FTP_USER_PASS: secret
-        FTP_USER_HOME: /app
-      volumes:
-        - ./storage/public:/app
 
     mailer:
       image: mailhog/mailhog
