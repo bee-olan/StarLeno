@@ -75,6 +75,7 @@ services:
             POSTGRES_INITDB_ARGS: "--locale=ru_RU.utf8"
         ports:
             - "54321:5432"
+
     pgadmin:
         image: dpage/pgadmin4
         environment:
