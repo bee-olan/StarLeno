@@ -96,6 +96,15 @@ services:
             POSTGRES_USER: app
             POSTGRES_PASSWORD: ${MANAGER_DB_PASSWORD}
             POSTGRES_DB: app
+    pgadmin:
+        image: dpage/pgadmin4
+        environment:
+            PGADMIN_DEFAULT_EMAIL: admin@admin.com
+            PGADMIN_DEFAULT_PASSWORD: secret
+        ports:
+            - "8084:80"
+        depends_on:
+            - manager-postgres
     manager-redis:
         image: redis:5.0-alpine
         restart: always
