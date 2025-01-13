@@ -71,8 +71,19 @@ services:
             POSTGRES_USER: app
             POSTGRES_PASSWORD: secret
             POSTGRES_DB: app
+            LANG: ru_RU.utf8
+            POSTGRES_INITDB_ARGS: "--locale=ru_RU.utf8"
         ports:
             - "54321:5432"
+    pgadmin:
+        image: dpage/pgadmin4
+        environment:
+            PGADMIN_DEFAULT_EMAIL: admin@admin.com
+            PGADMIN_DEFAULT_PASSWORD: secret
+        ports:
+            - "8084:80"
+        depends_on:
+            - manager-postgres
     manager-redis:
         image: redis:5.0-alpine
         volumes:
