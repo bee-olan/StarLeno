@@ -109,3 +109,23 @@ deploy-production:
 
 docker-bash:
 	docker exec -it root-manager-php-fpm-1 bash
+
+
+dev-up:
+	docker compose -f docker-compose-development.yml up -d
+
+# Запуск с пересборкой
+dev-build:
+	docker compose -f docker-compose-development.yml up -d --build
+
+# Остановка контейнеров
+dev-down:
+	docker compose -f docker-compose-development.yml down
+
+# Просмотр логов
+dev-logs:
+	docker compose -f docker-compose-development.yml logs -f
+
+# Просмотр списка запущенных контейнеров
+dev-ps:
+	docker compose -f docker-compose-development.yml ps
