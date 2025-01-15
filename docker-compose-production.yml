@@ -122,11 +122,6 @@ services:
         volumes:
             - manager-queue-redis:/data
 
-    mailer:
-      image: mailhog/mailhog
-      ports:
-        - "8082:8025"
-
     centrifugo:
         image: ${REGISTRY_ADDRESS}/centrifugo:${IMAGE_TAG}
         ulimits:

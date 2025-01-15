@@ -30,4 +30,24 @@ class AuthController extends AbstractController
         // controller can be blank: it will never be executed!
         throw new \Exception('Don\'t forget to activate logout in security.yaml');
     }
+
+    /**
+     * @Route("/test", name="test")
+     * @return Response
+     */
+    public function test(\Swift_Mailer $mailer): Response
+    {
+
+        $message = (new \Swift_Message('Тестовое письмо'))
+            ->setFrom('bee.regtema@mail.ru')
+            ->setTo('bee.regtema@mail.ru')
+            ->setBody('Это тестовое письмо');
+
+        try {
+            $result = $mailer->send($message);
+            dd('Письмо отправлено', $result);
+        } catch (\Exception $e) {
+            dd('Ошибка отправки:', $e->getMessage());
+        }
+    }
 }
