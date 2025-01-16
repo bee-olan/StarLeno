@@ -39,15 +39,17 @@ class AuthController extends AbstractController
     {
 
         $message = (new \Swift_Message('Тестовое письмо'))
-            ->setFrom('bee.regtema@mail.ru')
-            ->setTo('bee.regtema@mail.ru')
+            ->setFrom('dmchengaev-stat@yandex.ru')
+            ->setTo('webgyry@gmail.com')
             ->setBody('Это тестовое письмо');
 
         try {
             $result = $mailer->send($message);
+            dump($message->getHeaders()->toString());
+            dump($mailer->getTransport()->ping());
             dd('Письмо отправлено', $result);
         } catch (\Exception $e) {
-            dd('Ошибка отправки:', $e->getMessage());
+            dd('Ошибка отправки:', $e->getMessage(), $e->getTrace());
         }
     }
 }

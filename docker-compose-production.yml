@@ -97,7 +97,7 @@ services:
         image: dpage/pgadmin4
         environment:
             PGADMIN_DEFAULT_EMAIL: admin@admin.com
-            PGADMIN_DEFAULT_PASSWORD: secret
+            PGADMIN_DEFAULT_PASSWORD: VbcV*tMtRK
         ports:
             - "8084:80"
         depends_on:
@@ -135,3 +135,4 @@ volumes:
     manager-postgres:
     manager-redis:
     manager-queue-redis:
+    pgadmin-data:
