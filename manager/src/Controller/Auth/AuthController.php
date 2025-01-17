@@ -37,11 +37,26 @@ class AuthController extends AbstractController
      */
     public function test(\Swift_Mailer $mailer): Response
     {
+        $messageBody = 'Тема: Обновление графика работы с 1 февраля
 
-        $message = (new \Swift_Message('Тестовое письмо'))
-            ->setFrom('dmchengaev-stat@yandex.ru')
-            ->setTo('webgyry@gmail.com')
-            ->setBody('Это тестовое письмо');
+Здравствуйте!
+
+Сообщаем об изменении графика работы нашего офиса с 1 февраля 2025 года.
+
+Новый график:
+Понедельник-пятница: 9:00 - 19:00
+Суббота: 10:00 - 16:00
+Воскресенье: выходной
+
+По всем вопросам обращайтесь по телефону: +7 (999) 123-45-67
+
+С уважением,
+Команда поддержки';
+
+        $message = (new \Swift_Message('Обновление графика работы'))
+            ->setFrom('admin@regtema.ru')
+            ->setTo('bee.regtema@mail.ru')
+            ->setBody($messageBody);
 
         try {
             $result = $mailer->send($message);
