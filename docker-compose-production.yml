@@ -35,8 +35,6 @@ services:
       - manager-redis
       - manager-queue-redis
       - centrifugo
-    ports:
-      - "465:465"
   manager-php-cli:
     image: ${REGISTRY_ADDRESS}/manager-php-cli:${IMAGE_TAG}
     environment:
