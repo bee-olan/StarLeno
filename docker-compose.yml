@@ -83,6 +83,8 @@ services:
             PGADMIN_DEFAULT_PASSWORD: secret
         ports:
             - "8084:80"
+        volumes:
+            - pgadmin-data:/var/lib/pgadmin
         depends_on:
             - manager-postgres
     manager-redis:
@@ -143,3 +145,4 @@ volumes:
     manager-redis:
     manager-queue-redis:
     composer:
+    pgadmin-data:
