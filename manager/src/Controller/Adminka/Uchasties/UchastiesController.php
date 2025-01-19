@@ -241,7 +241,7 @@ class UchastiesController extends AbstractController
 //        return $this->render('app/adminka/uchasties/show.html.twig',
 //            compact('uchastie' , 'departments'));
 //    }
-//
+
 //    /**
 //     * @Route("/{uchastie_id}", name=".show", requirements={"uchastie_id"=Guid::PATTERN}))
 //     * @param Uchastie $uchastie

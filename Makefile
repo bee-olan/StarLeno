@@ -9,7 +9,7 @@ test-unit-coverage: manager-test-unit-coverage
 
 docker-up:
 	docker compose up -d
-	# docker-compose up -d
+
 docker-down:
 	docker compose down --remove-orphans
 

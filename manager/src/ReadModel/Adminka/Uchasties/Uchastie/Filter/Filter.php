@@ -10,7 +10,7 @@ class Filter
 {
     public $name;
     public $nike;
-//    public $email;
+    public $email;
     public $group;
     public $status = Status::ACTIVE;
 

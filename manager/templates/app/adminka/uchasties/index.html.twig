@@ -53,10 +53,12 @@
             <tbody>
             {% for uchastie in pagination %}
                 <tr>
-                    <td><a href="{{ path('adminka.uchasties.show', {'id': uchastie.id}) }}">{{ uchastie.nike }}</a></td>
+                    <td>{{ uchastie.nike }}</td>
+{#                    <td><a href="{{ path('adminka.uchasties.show', {'id': uchastie.id}) }}">{{ uchastie.nike }}</a></td>#}
                     <td>{{ uchastie.email }}</td>
+                    <td> -- </td>
 {#                     <td>{{ uchastie.uchasgodas_count }}</td>#}
-                    <td>{{ uchastie.uchastniks_count }}</td>
+{#                    <td>{{ uchastie.uchastniks_count }}</td>#}
                     <td>{{ uchastie.group }}</td>
                     <td>{{ uchastie_status(uchastie.status) }}</td>
                 </tr>

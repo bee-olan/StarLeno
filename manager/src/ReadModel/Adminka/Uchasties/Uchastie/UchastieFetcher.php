@@ -133,7 +133,7 @@ class UchastieFetcher
             ->select(
                 'm.id',
 //                'TRIM(CONCAT(m.name_first, \' \', m.name_last, \' \', m.name_nike)) AS name',
-//                'm.email',
+                'm.email',
                 'm.nike',
                 'g.name as group',
                 'm.status'
@@ -150,10 +150,10 @@ class UchastieFetcher
             $qb->setParameter(':nike', '%' . mb_strtolower($filter->nike) . '%');
         }
 
-//        if ($filter->email) {
-//            $qb->andWhere($qb->expr()->like('LOWER(m.email)', ':email'));
-//            $qb->setParameter(':email', '%' . mb_strtolower($filter->email) . '%');
-//        }
+        if ($filter->email) {
+            $qb->andWhere($qb->expr()->like('LOWER(m.email)', ':email'));
+            $qb->setParameter(':email', '%' . mb_strtolower($filter->email) . '%');
+        }
 
          if ($filter->status) {
              $qb->andWhere('m.status = :status');
